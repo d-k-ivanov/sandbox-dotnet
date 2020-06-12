@@ -16,14 +16,32 @@ namespace _1_BaseFeatures
         private static void PrintDataTypes()
         {
             Console.WriteLine("Data types:");
-            Console.WriteLine("\tByte Min:     " + byte.MinValue       + "\t\t\t\tByte Max:      "  + byte.MaxValue);
-            Console.WriteLine("\tInt16 Min:    " + short.MinValue      + "\t\t\tInt16 Max:     "    + short.MaxValue);
-            Console.WriteLine("\tInt32 Min:    " + int.MinValue        + "\t\tInt32 Max:     "      + int.MaxValue);
-            Console.WriteLine("\tInt64 Min:    " + long.MinValue       + "\tInt64 Max:     "        + long.MaxValue);
-            Console.WriteLine("\tFloat Min:    " + float.MinValue      + "\t\tFloat Max:     "      + float.MaxValue);
-            Console.WriteLine("\tDouble Min:   " + double.MinValue     + "\tDouble Max:    "        + double.MaxValue);
-            Console.WriteLine("\tChar Min:     " + (int) char.MinValue + "\t\t\t\tChar Max:      "  + (int) char.MaxValue);
-            Console.WriteLine("\tBoolean True: " + bool.TrueString     + "\t\t\tBoolean False: "    + bool.FalseString);
+
+            Console.WriteLine("\tSByte Min:    " + sbyte.MinValue      + "\t\t\t\tSByte Max:     "    + sbyte.MaxValue);
+            Console.WriteLine("\tByte Min:     " + byte.MinValue       + "\t\t\t\t\tByte Max:      "  + byte.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tInt16 Min:    " + short.MinValue      + "\t\t\t\tInt16 Max:     "    + short.MaxValue);
+            Console.WriteLine("\tUInt16 Min:   " + ushort.MinValue     + "\t\t\t\t\tUInt16 Max:    "  + ushort.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tInt32 Min:    " + int.MinValue        + "\t\t\tInt32 Max:     "      + int.MaxValue);
+            Console.WriteLine("\tUInt32 Min:   " + uint.MinValue       + "\t\t\t\t\tUInt32 Max:    "  + uint.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tInt64 Min:    " + long.MinValue       + "\t\tInt64 Max:     "        + long.MaxValue);
+            Console.WriteLine("\tUInt64 Min:   " + ulong.MinValue      + "\t\t\t\t\tUInt64 Max:    "  + ulong.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tDecimal Min:  " + decimal.MinValue    + "\tDecimal Max:   "          + decimal.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tSingle Min:   " + float.MinValue      + "\t\t\tSingle Max:    "      + float.MaxValue);
+            Console.WriteLine("\tDouble Min:   " + double.MinValue     + "\t\tDouble Max:    "        + double.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tChar Min:     " + (int) char.MinValue + "\t\t\t\t\tChar Max:      "  + (int) char.MaxValue);
+            Console.WriteLine("\tBoolean True: " + bool.TrueString     + "\t\t\t\tBoolean False: "    + bool.FalseString);
             Console.WriteLine("\tString        " + string.Empty);
 
             Console.WriteLine('\n');
