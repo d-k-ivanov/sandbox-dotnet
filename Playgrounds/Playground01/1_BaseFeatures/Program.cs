@@ -42,24 +42,37 @@ namespace _1_BaseFeatures
 
             Console.WriteLine("\tChar Min:     " + (int) char.MinValue + "\t\t\t\t\tChar Max:      "  + (int) char.MaxValue);
             Console.WriteLine("\tBoolean True: " + bool.TrueString     + "\t\t\t\tBoolean False: "    + bool.FalseString);
-            Console.WriteLine("\tString        " + string.Empty);
+            Console.WriteLine();
 
-            Console.WriteLine('\n');
+            Console.WriteLine("\tDateTime Min: " + DateTime.MinValue   + "\t\tDateTime Max:  "      + DateTime.MaxValue);
+            Console.WriteLine("\tTimeSpan Min: " + TimeSpan.MinValue   + "\tTimeSpan Max:  "        + TimeSpan.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tGuid:         " + Guid.NewGuid());
+            Console.WriteLine("\tString        " + "string".GetType());
+            Console.WriteLine("\tObject:       " + new object());
+            Console.WriteLine();
 
             Console.WriteLine("Data type sizes:");
-            Console.WriteLine("\tsizeof(sbyte):   " + sizeof(sbyte));
-            Console.WriteLine("\tsizeof(byte):    " + sizeof(byte));
-            Console.WriteLine("\tsizeof(short):   " + sizeof(short));
-            Console.WriteLine("\tsizeof(ushort):  " + sizeof(ushort));
-            Console.WriteLine("\tsizeof(int):     " + sizeof(int));
-            Console.WriteLine("\tsizeof(uint):    " + sizeof(uint));
-            Console.WriteLine("\tsizeof(long):    " + sizeof(long));
-            Console.WriteLine("\tsizeof(ulong):   " + sizeof(ulong));
-            Console.WriteLine("\tsizeof(char):    " + sizeof(char));
-            Console.WriteLine("\tsizeof(float):   " + sizeof(float));
-            Console.WriteLine("\tsizeof(double):  " + sizeof(double));
-            Console.WriteLine("\tsizeof(decimal): " + sizeof(decimal));
-            Console.WriteLine("\tsizeof(bool):    " + sizeof(bool));
+            Console.WriteLine("\tsizeof(bool):     " + sizeof(bool));
+            Console.WriteLine("\tsizeof(sbyte):    " + sizeof(sbyte));
+            Console.WriteLine("\tsizeof(byte):     " + sizeof(byte));
+            Console.WriteLine("\tsizeof(short):    " + sizeof(short));
+            Console.WriteLine("\tsizeof(ushort):   " + sizeof(ushort));
+            Console.WriteLine("\tsizeof(int):      " + sizeof(int));
+            Console.WriteLine("\tsizeof(uint):     " + sizeof(uint));
+            Console.WriteLine("\tsizeof(long):     " + sizeof(long));
+            Console.WriteLine("\tsizeof(ulong):    " + sizeof(ulong));
+            Console.WriteLine("\tsizeof(char):     " + sizeof(char));
+            Console.WriteLine("\tsizeof(float):    " + sizeof(float));
+            Console.WriteLine("\tsizeof(double):   " + sizeof(double));
+            Console.WriteLine("\tsizeof(decimal):  " + sizeof(decimal));
+            Console.WriteLine("\t------------------");
+            Console.WriteLine("\tsizeof(TimeSpan): " + sizeof(long));        // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(DateTime): " + sizeof(ulong));       // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(object):   " + sizeof(long));        // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(Guid):     " + sizeof(decimal));     // Fake, just to print proper size
+
         }
     }
 }
