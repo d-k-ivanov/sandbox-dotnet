@@ -1,0 +1,8 @@
+.dockerignore
+.editorconfig
+.gitignore
+bin/
+Dockerfile
+obj/
+publish-docker.ps1
+publish.ps1
