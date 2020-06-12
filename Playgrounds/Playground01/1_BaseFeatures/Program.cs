@@ -16,6 +16,7 @@ namespace _1_BaseFeatures
         private static void PrintDataTypes()
         {
             Console.WriteLine("Data types:");
+            Console.WriteLine("\tByte Min:     " + byte.MinValue       + "\t\t\t\tByte Max:      "  + byte.MaxValue);
             Console.WriteLine("\tInt16 Min:    " + short.MinValue      + "\t\t\tInt16 Max:     "    + short.MaxValue);
             Console.WriteLine("\tInt32 Min:    " + int.MinValue        + "\t\tInt32 Max:     "      + int.MaxValue);
             Console.WriteLine("\tInt64 Min:    " + long.MinValue       + "\tInt64 Max:     "        + long.MaxValue);
