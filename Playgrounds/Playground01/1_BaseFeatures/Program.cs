@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 
 namespace _1_BaseFeatures
 {
@@ -58,20 +59,27 @@ namespace _1_BaseFeatures
 
             Console.WriteLine("Non-Primitive data types:");
 
-            Console.WriteLine("\tDateTime Min: " + DateTime.MinValue   + "\t\tDateTime Max:  "      + DateTime.MaxValue);
-            Console.WriteLine("\tTimeSpan Min: " + TimeSpan.MinValue   + "\tTimeSpan Max:  "        + TimeSpan.MaxValue);
-            Console.WriteLine("\tDecimal Min:  " + decimal.MinValue    + "\tDecimal Max:   "        + decimal.MaxValue);
-            Console.WriteLine("\tString        " + "string".GetType());
-            Console.WriteLine("\tObject:       " + new object());
-            Console.WriteLine("\tGuid:         " + Guid.NewGuid());
+            Console.WriteLine("\tDateTime Min:      " + DateTime.MinValue   + "\t\t\tDateTime Max:  "      + DateTime.MaxValue);
+            Console.WriteLine("\tTimeSpan Min:      " + TimeSpan.MinValue   + "\t\tTimeSpan Max:  "        + TimeSpan.MaxValue);
+            Console.WriteLine("\tDecimal Min:       " + decimal.MinValue    + "\tDecimal Max:   "        + decimal.MaxValue);
+            Console.WriteLine();
+
+            Console.WriteLine("\tString             " + "string".GetType());
+            Console.WriteLine("\tObject:            " + new object());
+            Console.WriteLine("\tGuid:              " + Guid.NewGuid());
+            Console.WriteLine();
+
+            Console.WriteLine("\tBigInteger 2**300: " + BigInteger.Pow(2, 300));
+            Console.WriteLine("\tComplex Infinity:  " + Complex.Infinity);
             Console.WriteLine();
 
             Console.WriteLine("Non-Primitive data type sizes:");
-            Console.WriteLine("\tsizeof(TimeSpan): " + sizeof(long));        // Fake, just to print proper size
-            Console.WriteLine("\tsizeof(DateTime): " + sizeof(ulong));       // Fake, just to print proper size
-            Console.WriteLine("\tsizeof(object):   " + sizeof(long));        // Fake, just to print proper size
-            Console.WriteLine("\tsizeof(Guid):     " + sizeof(decimal));     // Fake, just to print proper size
-            Console.WriteLine("\tsizeof(decimal):  " + sizeof(decimal));
+            Console.WriteLine("\tsizeof(TimeSpan):   " + sizeof(long));        // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(DateTime):   " + sizeof(ulong));       // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(object):     " + sizeof(long));        // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(Guid):       " + sizeof(decimal));     // Fake, just to print proper size
+            Console.WriteLine("\tsizeof(decimal):    " + sizeof(decimal));
+            Console.WriteLine("\tsizeof(BigInteger): " + "symbols * byte + C");
 
 
         }
