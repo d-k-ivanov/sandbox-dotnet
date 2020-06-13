@@ -16,6 +16,12 @@ namespace _1_BaseFeatures
             Variables.PrintVariables();
             Utils.PrintSeparator();
 
+            Variables.VariablesOverflow();
+            Utils.PrintSeparator();
+
+            Variables.ArithmeticOperations();
+            Utils.PrintSeparator();
+
         }
 
         private static void PrintDataTypes()
