@@ -8,10 +8,14 @@ namespace _1_BaseFeatures
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Console.WriteLine('\n');
+            Utils.PrintSeparator();
 
             PrintDataTypes();
-            Console.WriteLine('\n');
+            Utils.PrintSeparator();
+
+            Variables.PrintVariables();
+            Utils.PrintSeparator();
+
         }
 
         private static void PrintDataTypes()
@@ -80,8 +84,6 @@ namespace _1_BaseFeatures
             Console.WriteLine("\tsizeof(Guid):       " + sizeof(decimal));     // Fake, just to print proper size
             Console.WriteLine("\tsizeof(decimal):    " + sizeof(decimal));
             Console.WriteLine("\tsizeof(BigInteger): " + "symbols * byte + C");
-
-
         }
     }
 }
