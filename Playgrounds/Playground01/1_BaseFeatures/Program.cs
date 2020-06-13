@@ -22,6 +22,14 @@ namespace _1_BaseFeatures
             Variables.ArithmeticOperations();
             Utils.PrintSeparator();
 
+            Strings.PrintBasicStringOperations();
+            Utils.PrintSeparator();
+
+            Strings.PrintEmptiness();
+            Utils.PrintSeparator();
+
+            Strings.PrintStringChanging();
+            Utils.PrintSeparator();
         }
 
         private static void PrintDataTypes()
