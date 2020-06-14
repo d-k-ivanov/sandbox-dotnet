@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks.Dataflow;
 
 namespace _1_BaseFeatures
 {
@@ -124,7 +120,7 @@ namespace _1_BaseFeatures
 
             Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
             Console.WriteLine(string.Format("\tMoney: {0:C1}", 32.08));
-            Console.WriteLine();
+
 
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
             Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
@@ -133,6 +129,22 @@ namespace _1_BaseFeatures
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
             Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
             Console.WriteLine(string.Format("\tMoney: {0:C1}", 32.08));
+        }
+
+        internal static void PrintStringsComparison()
+        {
+            string str1 = "abcde";
+            string str2 = "abcde";
+
+            Console.WriteLine(str1 == str2);
+            Console.WriteLine(string.Equals(str1, str2, StringComparison.Ordinal));
+
+            string str3 = "Strasse";
+            string str4 = "Straße";
+            Console.WriteLine(string.Equals(str3, str4, StringComparison.Ordinal));
+            Console.WriteLine(string.Equals(str3, str4, StringComparison.InvariantCulture));
+            Console.WriteLine(string.Equals(str3, str4, StringComparison.CurrentCulture));
+
         }
     }
 }
