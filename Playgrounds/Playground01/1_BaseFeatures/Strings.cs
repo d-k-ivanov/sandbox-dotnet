@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks.Dataflow;
 
 namespace _1_BaseFeatures
@@ -104,6 +106,33 @@ namespace _1_BaseFeatures
             Console.WriteLine("\t" + "I'm Dima and I'm a \"good\" programmer");
             Console.WriteLine("\t" + "c:\\Temp\\test.txt");
             Console.WriteLine("\t" + @"c:\Temp\test.txt");
+            Console.WriteLine();
+
+            Console.WriteLine(string.Format("\tNumber: {0:d}", 32));
+            Console.WriteLine(string.Format("\tNumber: {0:d4}", 32));
+            Console.WriteLine();
+
+            Console.WriteLine(string.Format("\tNumber: {0:f}", 32));
+            Console.WriteLine(string.Format("\tNumber: {0:f4}", 32));
+            Console.WriteLine();
+
+            Console.WriteLine(string.Format("\tNumber: {0:f}", 32.08));
+            Console.WriteLine(string.Format("\tNumber: {0:f1}", 32.08));
+            Console.WriteLine();
+
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
+            Console.WriteLine(string.Format("\tMoney: {0:C1}", 32.08));
+            Console.WriteLine();
+
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
+            Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
+            Console.WriteLine(string.Format("\tMoney: {0:C1}", 32.08));
+
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
+            Console.WriteLine(string.Format("\tMoney: {0:C}", 32.08));
+            Console.WriteLine(string.Format("\tMoney: {0:C1}", 32.08));
         }
     }
 }
