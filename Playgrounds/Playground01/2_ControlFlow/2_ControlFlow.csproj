@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_1_BaseFeatures</RootNamespace>
+    <RootNamespace>_2_ControlFlow</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -26,11 +26,11 @@ namespace _1_BaseFeatures
             double area = Math.Sqrt(perimeter * (perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC));
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"  Triangle:\n" +
-                              $"\tSide A: {sideA}\n" +
-                              $"\tSide B: {sideB}\n" +
-                              $"\tSide C: {sideC}\n" +
-                              $"  Area: {area}");
+            Console.WriteLine($"  Triangle:{Environment.NewLine}" +
+                              $"\tSide A: {sideA:f3}{Environment.NewLine}" +
+                              $"\tSide B: {sideB:f3}{Environment.NewLine}" +
+                              $"\tSide C: {sideC:f3}{Environment.NewLine}" +
+                              $"  Area: {area:f3}");
             Console.ForegroundColor = defaultForegroundColor;
         }
 
@@ -53,9 +53,13 @@ namespace _1_BaseFeatures
             double height = double.Parse((string.IsNullOrWhiteSpace(heightInput) ? "1" : heightInput));
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(
-                $"  Your profile:\n\tFull Name: {surname} {name}\n\tAge: {age}\n\tWeight: {weight}\n\t" +
-                $"Height: {height}\n\tBody Mass Index: {weight/Math.Pow(height, 2)}");
+            Console.WriteLine($"  Your profile:{Environment.NewLine}"
+                              + $"\tFull Name: {surname} {name}{Environment.NewLine}"
+                              + $"\tAge: {age}{Environment.NewLine}"
+                              + $"\tWeight: {weight}{Environment.NewLine}"
+
+                              + $"\tHeight: {height}{Environment.NewLine}"
+                              + $"\tBody Mass Index: {weight/Math.Pow(height, 2):f3}");
             Console.ForegroundColor = defaultForegroundColor;
         }
     }

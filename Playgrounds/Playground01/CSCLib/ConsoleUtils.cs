@@ -1,10 +1,11 @@
 using System;
 
-namespace _1_BaseFeatures
+namespace CSCLib
 {
-    internal class Utils
+    public class ConsoleUtils
     {
-        internal static void PrintSeparator()
+
+        public static void PrintSeparator()
         {
             Console.WriteLine();
             Console.WriteLine(new string('-', 100));

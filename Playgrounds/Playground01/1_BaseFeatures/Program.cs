@@ -1,4 +1,5 @@
 using System;
+using CSCLib;
 
 namespace _1_BaseFeatures
 {
@@ -6,55 +7,55 @@ namespace _1_BaseFeatures
     {
         private static void Main(string[] args)
         {
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Console.WriteLine("Hello World!");
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             DataTypes.PrintDataTypes();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Variables.PrintVariables();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Variables.VariablesOverflow();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Variables.ArithmeticOperations();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Strings.PrintBasicStringOperations();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Strings.PrintEmptiness();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Strings.PrintStringChanging();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             Strings.PrintStringsComparison();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             InputOutput.IOBasics();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             DataTypes.TypeConversions();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             MathModule.MathExamples();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             DataTypes.Arrays();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             DataTypes.Dates();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             HomeWork.HeronArea();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
             HomeWork.UserProfile();
-            Utils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
 
             // -----------------------------------------------
