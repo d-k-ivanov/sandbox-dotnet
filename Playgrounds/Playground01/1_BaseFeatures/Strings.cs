@@ -136,14 +136,14 @@ namespace _1_BaseFeatures
             string str1 = "abcde";
             string str2 = "abcde";
 
-            Console.WriteLine(str1 == str2);
-            Console.WriteLine(string.Equals(str1, str2, StringComparison.Ordinal));
+            Console.WriteLine("\t" + (str1 == str2));
+            Console.WriteLine("\t" + string.Equals(str1, str2, StringComparison.Ordinal));
 
             string str3 = "Strasse";
             string str4 = "Straße";
-            Console.WriteLine(string.Equals(str3, str4, StringComparison.Ordinal));
-            Console.WriteLine(string.Equals(str3, str4, StringComparison.InvariantCulture));
-            Console.WriteLine(string.Equals(str3, str4, StringComparison.CurrentCulture));
+            Console.WriteLine("\t" + string.Equals(str3, str4, StringComparison.Ordinal));
+            Console.WriteLine("\t" + string.Equals(str3, str4, StringComparison.InvariantCulture));
+            Console.WriteLine("\t" + string.Equals(str3, str4, StringComparison.CurrentCulture));
 
         }
     }

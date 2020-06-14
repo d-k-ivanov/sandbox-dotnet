@@ -116,7 +116,7 @@ namespace _1_BaseFeatures
             x = 1;
             Console.WriteLine($"Current state of x: {x}");
             int j = x++;
-            Console.WriteLine("j = x++:");
+            Console.WriteLine("\tj = x++:");
             Console.WriteLine("\tx: " + x);
             Console.WriteLine("\tj: " + j);
             Console.WriteLine();
@@ -125,7 +125,7 @@ namespace _1_BaseFeatures
             x = 1;
             Console.WriteLine($"Current state of x: {x}");
             j = ++x;
-            Console.WriteLine("j = ++x:");
+            Console.WriteLine("\tj = ++x:");
             Console.WriteLine("\tx: " + x);
             Console.WriteLine("\tj: " + j);
         }

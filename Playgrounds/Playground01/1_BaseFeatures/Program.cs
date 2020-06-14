@@ -41,6 +41,25 @@ namespace _1_BaseFeatures
             DataTypes.TypeConversions();
             Utils.PrintSeparator();
 
+            MathModule.MathExamples();
+            Utils.PrintSeparator();
+
+            DataTypes.Arrays();
+            Utils.PrintSeparator();
+
+            DataTypes.Dates();
+            Utils.PrintSeparator();
+
+            HomeWork.HeronArea();
+            Utils.PrintSeparator();
+
+            HomeWork.UserProfile();
+            Utils.PrintSeparator();
+
+
+            // -----------------------------------------------
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }

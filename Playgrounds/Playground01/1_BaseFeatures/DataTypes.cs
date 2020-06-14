@@ -1,5 +1,6 @@
 using System;
 using System.Numerics;
+using System.Threading;
 
 namespace _1_BaseFeatures
 {
@@ -99,6 +100,56 @@ namespace _1_BaseFeatures
             i = 5;
             Console.WriteLine("\t5/2=" + i / 2);
             Console.WriteLine("\t5/2=" + (double)i / 2);
+        }
+
+        internal static void Arrays()
+        {
+            int[] a1;
+            a1 = new int[10];
+
+            int[] a2 = new int[5];
+            int[] a3 = new int[5] {1, 2, 3, 4, 5};
+            int[] a4 = {1, 2, 3, 4, 5};
+
+            for (var index = 0; index < a4.Length; index++)
+            {
+                var value = a4[index];
+                Console.WriteLine($"\ta4[{index}] = " + value);
+            }
+
+            string str1 = "abcdefghijklmnopqrstuvwxyz";
+            Console.Write("\t");
+            foreach (var value in str1)
+            {
+                Console.Write(value + "");
+                if (value == str1[str1.Length - 1])
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+        }
+
+        internal static void Dates()
+        {
+            // Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-ES");
+            var now = DateTime.Now;
+            Console.WriteLine("\tDateTime.Now: " + now);
+            Console.WriteLine(
+                $"\tDateTime expanded: Date: {now.Day}/{now.Month}/{now.Year} DayOfWeek: {now.DayOfWeek} Hour: {now.Hour} Minute: {now.Minute} Second: {now.Second}");
+
+            var dt = new DateTime(2019, 12, 15);
+            Console.WriteLine("\tDateTime(2019, 12, 15): " + dt);
+            Console.WriteLine("\tDateTime(2019, 12, 15).AddDays(10): " + dt.AddDays(10));
+
+            TimeSpan ts = now - dt;
+            Console.WriteLine($"\t{now}.Substract({dt})");
+            Console.WriteLine(
+                $"\tTimeSpan: {(long) ts.TotalDays} days or {(long) ts.TotalHours} hours or {(long) ts.TotalMinutes} mins or {(long) ts.TotalMilliseconds} ms or {ts.Ticks} ticks");
         }
     }
 }
