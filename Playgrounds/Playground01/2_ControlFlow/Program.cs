@@ -16,8 +16,15 @@ namespace _2_ControlFlow
             // Loops();
             // ConsoleUtils.PrintSeparator();
 
-            SumArray();
+            // SumArray();
             // ConsoleUtils.PrintSeparator();
+
+            // FindAntiDuples();
+            // ConsoleUtils.PrintSeparator();
+
+            FindAntiTriples();
+            // ConsoleUtils.PrintSeparator();
+
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -167,6 +174,79 @@ namespace _2_ControlFlow
             }
             Console.WriteLine();
             Console.WriteLine($"Sum of Numbers: {sum}");
+
+        }
+
+        private static void FindAntiDuples()
+        {
+            // O(n**3)
+            int[] numbers = new int[100];
+            Random rnd = new Random();
+
+            Console.WriteLine("Numbers:");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = rnd.Next(-100, 100);
+                Console.Write($"{numbers[i],-6}");
+                if (i % 10 == 0 || i == numbers.Length - 1)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                for (int j = i; j < numbers.Length; j++)
+                {
+                    if (numbers[i] + numbers[j] == 0)
+                    {
+                        Console.WriteLine($"Duple found: index #{i:d3} => {numbers[i],4} | index #{j:d3} => {numbers[j],4}");
+                    }
+                }
+            }
+
+        }
+
+        private static void FindAntiTriples()
+        {
+            // O(n**3)
+            var numbers = new int[100];
+            Random rnd = new Random();
+
+            Console.WriteLine("Numbers:");
+            for (var i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = rnd.Next(-100, 1000);
+                Console.Write($"{numbers[i],-6}");
+                if (i % 10 == 0 || i == numbers.Length - 1)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+            Console.WriteLine();
+
+            for (var i = 0; i < numbers.Length; i++)
+            {
+                for (var j = i; j < numbers.Length; j++)
+                {
+                    for (var k = i; k < numbers.Length; k++)
+                    {
+                        if (numbers[i] + numbers[j] + numbers[k] == 0)
+                        {
+                            Console.WriteLine($"Triple found: index #{i:d3} => {numbers[i],4} | index #{j:d3} => {numbers[j],4} | index #{k:d3} => {numbers[k],4}");
+                        }
+                    }
+                }
+            }
 
         }
     }
