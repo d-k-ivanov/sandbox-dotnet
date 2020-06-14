@@ -9,8 +9,15 @@ namespace _2_ControlFlow
         static void Main(string[] args)
         {
             ConsoleUtils.PrintSeparator();
-            AmITooFat();
-            ConsoleUtils.PrintSeparator();
+
+            // AmITooFat();
+            // ConsoleUtils.PrintSeparator();
+
+            // Loops();
+            // ConsoleUtils.PrintSeparator();
+
+            SumArray();
+            // ConsoleUtils.PrintSeparator();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -70,6 +77,97 @@ namespace _2_ControlFlow
             Console.WriteLine($"\t{canIGoToTheClub}");
 
             Console.ForegroundColor = defaultForegroundColor;
+        }
+
+        private static void Loops()
+        {
+            int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+
+            Console.Write("Straight:\t");
+            for (var i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i]);
+                if (i == arr.Length - 1)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+            }
+
+            Console.Write("Reverse:\t");
+            for (var i = arr.Length - 1; i >= 0; i--)
+            {
+                Console.Write(arr[i]);
+                if (i == 0)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+            }
+
+            Console.Write("Straight:\t");
+            foreach (var value in arr)
+            {
+                Console.Write(value);
+                if (value == arr[^1])
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+
+            }
+
+            Console.Write("Odds:\t\t");
+            foreach (var i in arr)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+            Console.WriteLine();
+
+        }
+
+        private static void SumArray()
+        {
+            int[] numbers = new int[100];
+            Random rnd = new Random();
+
+            Console.WriteLine("Numbers:");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] = rnd.Next(-1000, 1000);
+                Console.Write($"{numbers[i],-6}");
+                if (i % 10 == 0 || i == numbers.Length)
+                {
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+            }
+
+            int sum = 0;
+            foreach (var value in numbers)
+            {
+                sum += value;
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Sum of Numbers: {sum}");
+
         }
     }
 }
