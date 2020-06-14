@@ -72,5 +72,33 @@ namespace _1_BaseFeatures
             Console.WriteLine("\tsizeof(decimal):    " + sizeof(decimal));
             Console.WriteLine("\tsizeof(BigInteger): " + "symbols * byte + C");
         }
+
+        internal static void TypeConversions()
+        {
+            byte  b = 3; // 0000 0011
+            int   i = b; // 0000 0000 0000 0000 0000 0000 0000 0011
+            long  l = i; // 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0011
+            float f = i; // 3.0
+
+            b = (byte) i;
+            i = (int)  f;
+
+            Console.WriteLine("\tf: " + f + " i: "  + i);
+            f = 3.3f;
+            i = (int) f;
+            Console.WriteLine("\tf: " + f + " i: "  + i);
+
+            f = 3.5f;
+            i = (int) f;
+            Console.WriteLine("\tf: " + f + " i: "  + i);
+
+            f = 3.7f;
+            i = (int) f;
+            Console.WriteLine("\tf: " + f + " i: "  + i);
+
+            i = 5;
+            Console.WriteLine("\t5/2=" + i / 2);
+            Console.WriteLine("\t5/2=" + (double)i / 2);
+        }
     }
 }
