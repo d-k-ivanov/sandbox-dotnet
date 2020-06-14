@@ -55,12 +55,10 @@ namespace _1_BaseFeatures
             ConsoleUtils.PrintSeparator();
 
             HomeWork.UserProfile();
-            ConsoleUtils.PrintSeparator();
 
 
             // -----------------------------------------------
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            ConsoleUtils.EndOfProgram();
         }
     }
 }
