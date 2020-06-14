@@ -4,26 +4,26 @@ using CSCLib;
 
 namespace _2_ControlFlow
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
             ConsoleUtils.PrintSeparator();
 
-            // AmITooFat();
-            // ConsoleUtils.PrintSeparator();
+            AmITooFat();
+            ConsoleUtils.PrintSeparator();
 
-            // Loops();
-            // ConsoleUtils.PrintSeparator();
+            Loops();
+            ConsoleUtils.PrintSeparator();
 
-            // SumArray();
-            // ConsoleUtils.PrintSeparator();
+            SumArray();
+            ConsoleUtils.PrintSeparator();
 
-            // FindAntiDuples();
-            // ConsoleUtils.PrintSeparator();
+            FindAntiDuples();
+            ConsoleUtils.PrintSeparator();
 
             FindAntiTriples();
-            // ConsoleUtils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
 
 
             // -----------------------------------------------
