@@ -29,7 +29,16 @@ namespace _2_ControlFlow
             // PadawanDetection();
             // ConsoleUtils.PrintSeparator();
 
-            FibonacciNumbers();
+            // FibonacciNumbers();
+            // ConsoleUtils.PrintSeparator();
+
+            Factorial();
+            // ConsoleUtils.PrintSeparator();
+
+
+            // ConsoleUtils.PrintSeparator();
+
+
             // ConsoleUtils.PrintSeparator();
 
 
@@ -346,6 +355,38 @@ namespace _2_ControlFlow
                 Console.Write($"{el} ");
             }
             Console.WriteLine();
+        }
+
+        private static void Factorial()
+        {
+            Console.Write("Factorial of what number you want to see? ");
+            ushort n = ushort.Parse(Console.ReadLine() ?? "0");
+            if (n > 27)
+            {
+                n = 27;
+                var oldConsoleColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Error: Sorry, we can show you only {n} numbers...");
+                Console.ForegroundColor = oldConsoleColor;
+            }
+
+            decimal ans = 1;
+            switch (n)
+            {
+                case 0:
+                case 1:
+                    ans = 1;
+                    break;
+                default:
+                    int i = n;
+                    do
+                    {
+                        ans = ans * i;
+                        i--;
+                    } while (i >= 2);
+                    break;
+            }
+            Console.WriteLine($"{n}! = {ans}");
         }
     }
 }
