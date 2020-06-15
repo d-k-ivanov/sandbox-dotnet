@@ -11,23 +11,23 @@ namespace _2_ControlFlow
         {
             ConsoleUtils.PrintSeparator();
 
-            AmITooFat();
-            ConsoleUtils.PrintSeparator();
+            // AmITooFat();
+            // ConsoleUtils.PrintSeparator();
 
-            Loops();
-            ConsoleUtils.PrintSeparator();
+            // Loops();
+            // ConsoleUtils.PrintSeparator();
 
-            SumArray();
-            ConsoleUtils.PrintSeparator();
+            // SumArray();
+            // ConsoleUtils.PrintSeparator();
 
-            FindAntiDuples();
-            ConsoleUtils.PrintSeparator();
+            // FindAntiDuples();
+            // ConsoleUtils.PrintSeparator();
 
-            FindAntiTriples();
-            ConsoleUtils.PrintSeparator();
+            // FindAntiTriples();
+            // ConsoleUtils.PrintSeparator();
 
             PadawanDetection();
-            ConsoleUtils.PrintSeparator();
+            // ConsoleUtils.PrintSeparator();
 
 
             // -----------------------------------------------
@@ -266,21 +266,45 @@ namespace _2_ControlFlow
                 age = int.Parse(Console.ReadLine() ?? "0");
             }
 
+            // switch (age)
+            // {
+            //     case var n when (n >= 100):
+            //         break;
+            //     case int n when (n < 100 && n >= 50):
+            //         break;
+            //     case int n when ( n < 50 && n >= 30):
+            //         break;
+            //     default:
+            //         Console.WriteLine("<(°.°)> : Patience you must have my young Padawan.");
+            //         break;
+            // }
+
+            // Range-based switch with object pattern
             switch (age)
             {
                 case { } n when (n >= 100):
-                    Console.WriteLine("<(°.°)> : When nine hundred years old you reach, look as good you will not, Master Jedi");
+                    Console.WriteLine("<(°.°)> : When nine hundred years old you reach, look as good you will not, master Jedi!");
                     break;
                 case { } n when (n < 100 && n >= 50):
-                    Console.WriteLine("<(°.°)> : A Jedi uses the Force for knowledge and defense, never for attack, Apprentice Jedi.");
+                    Console.WriteLine("<(°.°)> : A Jedi uses the Force for knowledge and defense, never for attack, Jedi!");
                     break;
                 case { } n when ( n < 50 && n >= 30):
-                    Console.WriteLine("<(°.°)> : Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. Young Jedi.");
+                    Console.WriteLine("<(°.°)> : Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering, young Jedi.");
                     break;
                 default:
                     Console.WriteLine("<(°.°)> : Patience you must have my young Padawan.");
                     break;
             }
+
+            // Range-based inline switch with object pattern
+            var yodasWisdom = age switch
+            {
+                {} n when (n >= 100)            => "<(°.°)> : Only the Dark Lord of the Sith knows of our weakness. If informed the senate is, multiply our adversaries will, master Jedi!",
+                {} n when (n < 100 && n >= 50)  => "<(°.°)> : Do not assume anything Obi-Wan. Clear your mind must be if you are to discover the real villains behind this plot, Jedi!",
+                {} n when (n < 50 && n >= 30)   => "<(°.°)> : Powerful you have become, the dark side I sense in you, young Jedi.",
+                {}                                  => "<(°.°)> : Always two there are, no more, no less. A master and an apprentice, young Padawan."
+            };
+            Console.WriteLine(yodasWisdom);
 
             Console.ForegroundColor = defaultForegroundColor;
         }
