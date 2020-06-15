@@ -315,9 +315,18 @@ namespace _2_ControlFlow
         private static void FibonacciNumbers()
         {
             Console.Write("How many Fibonacci numbers you want to see? ");
-            uint maxNumber = uint.Parse(Console.ReadLine() ?? "1");
+            ushort maxNumber = ushort.Parse(Console.ReadLine() ?? "1");
+            if (maxNumber > 138)
+            {
+                var oldConsoleColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error: Sorry, we can show you only 138 numbers...");
+                Console.ForegroundColor = oldConsoleColor;
+                maxNumber = 138;
+            }
 
-            uint i = 0;
+
+            ushort i = 0;
             decimal a = 0, b = 1;
 
             var fibNums = new decimal[maxNumber];
@@ -337,7 +346,6 @@ namespace _2_ControlFlow
                 Console.Write($"{el} ");
             }
             Console.WriteLine();
-
         }
     }
 }
