@@ -26,7 +26,10 @@ namespace _2_ControlFlow
             // FindAntiTriples();
             // ConsoleUtils.PrintSeparator();
 
-            PadawanDetection();
+            // PadawanDetection();
+            // ConsoleUtils.PrintSeparator();
+
+            FibonacciNumbers();
             // ConsoleUtils.PrintSeparator();
 
 
@@ -307,6 +310,34 @@ namespace _2_ControlFlow
             Console.WriteLine(yodasWisdom);
 
             Console.ForegroundColor = defaultForegroundColor;
+        }
+
+        private static void FibonacciNumbers()
+        {
+            Console.Write("How many Fibonacci numbers you want to see? ");
+            uint maxNumber = uint.Parse(Console.ReadLine() ?? "1");
+
+            uint i = 0;
+            decimal a = 0, b = 1;
+
+            var fibNums = new decimal[maxNumber];
+            while (i < maxNumber)
+            {
+                // Console.Write(i == 1 ? $"{a} {b} " : $"{b} ");
+                // Console.Write($"{b} ");
+                fibNums[i] = b;
+                var t = a;
+                a = b;
+                b = t + a;
+                i++;
+            }
+
+            foreach (var el in fibNums)
+            {
+                Console.Write($"{el} ");
+            }
+            Console.WriteLine();
+
         }
     }
 }
