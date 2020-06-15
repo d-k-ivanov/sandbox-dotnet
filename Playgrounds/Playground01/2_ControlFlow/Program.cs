@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Intrinsics.X86;
 using CSCLib;
 
@@ -23,6 +24,9 @@ namespace _2_ControlFlow
             ConsoleUtils.PrintSeparator();
 
             FindAntiTriples();
+            ConsoleUtils.PrintSeparator();
+
+            PadawanDetection();
             ConsoleUtils.PrintSeparator();
 
 
@@ -248,6 +252,37 @@ namespace _2_ControlFlow
                 }
             }
 
+        }
+
+        private static void PadawanDetection()
+        {
+            var defaultForegroundColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
+            var age = 0;
+
+            while (age < 18)
+            {
+                Console.Write("What is your age, Youthful Padawan? ");
+                age = int.Parse(Console.ReadLine() ?? "0");
+            }
+
+            switch (age)
+            {
+                case { } n when (n >= 100):
+                    Console.WriteLine("<(°.°)> : When nine hundred years old you reach, look as good you will not, Master Jedi");
+                    break;
+                case { } n when (n < 100 && n >= 50):
+                    Console.WriteLine("<(°.°)> : A Jedi uses the Force for knowledge and defense, never for attack, Apprentice Jedi.");
+                    break;
+                case { } n when ( n < 50 && n >= 30):
+                    Console.WriteLine("<(°.°)> : Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering. Young Jedi.");
+                    break;
+                default:
+                    Console.WriteLine("<(°.°)> : Patience you must have my young Padawan.");
+                    break;
+            }
+
+            Console.ForegroundColor = defaultForegroundColor;
         }
     }
 }
