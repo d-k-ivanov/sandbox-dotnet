@@ -1,16 +1,28 @@
 // using System.Net.Http;
 // using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using OpenTracing;
 
 namespace ServiceFive.Controllers
 {
     [ApiController]
     [Route("api/service")]
-    public class ServiceController : ControllerBase
+    public class ServiceFiveController : ControllerBase
     {
+        private readonly ITracer _tracer;
+
+        public ServiceFiveController(ITracer tracer)
+        {
+            _tracer = tracer;
+        }
+
         [HttpGet]
         public string Get()
         {
+            var span = _tracer.BuildSpan("ServiceFiveController Span").Start();
+            span.Log("ServiceFiveController Log");
+            span.SetTag("warning",true);
+            span.Finish();
             return "ServiceFive";
         }
 

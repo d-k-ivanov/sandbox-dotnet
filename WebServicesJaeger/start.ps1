@@ -1,5 +1,7 @@
-
-Stop-Process -Name dotnet
+if ( Get-Process -Name "dotnet" -ErrorAction SilentlyContinue )
+{
+    Stop-Process -Name dotnet
+}
 
 Start-Process -NoNewWindow  dotnet.exe -ArgumentList "run","-p",".\ServiceOne\"
 Start-Process -NoNewWindow  dotnet.exe -ArgumentList "run","-p",".\ServiceTwo\"
