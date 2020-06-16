@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace ServiceOne
+namespace ServiceFour
 {
     public class Program
     {
@@ -13,7 +13,7 @@ namespace ServiceOne
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
-                        .UseUrls("http://*:8001")
+                        .UseUrls("http://*:8004")
                         .UseStartup<Startup>();
                 });
     }

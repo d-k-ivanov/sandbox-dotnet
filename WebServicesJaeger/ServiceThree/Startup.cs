@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using OpenTracing;
 using OpenTracing.Util;
 
-namespace ServiceOne
+namespace ServiceThree
 {
     public class Startup
     {

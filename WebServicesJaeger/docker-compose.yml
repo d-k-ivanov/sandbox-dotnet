@@ -25,14 +25,64 @@ services:
     restart: always
     ports:
       - 8001:8001
-    environment:
-      MYSQL_ROOT_PASSWORD: password
     volumes:
       - ./ServiceOne:/ServiceOne
     networks:
       main:
         aliases:
           - service_one
+  service_two:
+    container_name: dev_service_two
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    command: dotnet run -p /ServiceTwo
+    restart: always
+    ports:
+      - 8002:8002
+    volumes:
+      - ./ServiceTwo:/ServiceTwo
+    networks:
+      main:
+        aliases:
+          - service_two
+  service_three:
+    container_name: dev_service_three
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    command: dotnet run -p /ServiceThree
+    restart: always
+    ports:
+      - 8003:8003
+    volumes:
+      - ./ServiceThree:/ServiceThree
+    networks:
+      main:
+        aliases:
+          - service_three
+  service_four:
+    container_name: dev_service_four
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    command: dotnet run -p /ServiceFour
+    restart: always
+    ports:
+      - 8004:8004
+    volumes:
+      - ./ServiceFour:/ServiceFour
+    networks:
+      main:
+        aliases:
+          - service_four
+  service_five:
+    container_name: dev_service_five
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    command: dotnet run -p /ServiceFive
+    restart: always
+    ports:
+      - 8005:8005
+    volumes:
+      - ./ServiceFive:/ServiceFive
+    networks:
+      main:
+        aliases:
+          - service_five
 networks:
   main:
 
