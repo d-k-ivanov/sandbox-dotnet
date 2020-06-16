@@ -1,0 +1,38 @@
+version: '3'
+services:
+  # jaeger:
+  #   container_name: dev_jaeger
+  #   image: jaegertracing/all-in-one:1.18
+  #   environment:
+  #     COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+  #   ports:
+  #     - "5775:5775/udp"  # agent:      accept zipkin.thrift over compact thrift protocol (deprecated)
+  #     - "6831:6831/udp"  # agent:      accept jaeger.thrift over compact thrift protocol
+  #     - "6832:6832/udp"  # agent:      accept jaeger.thrift over binary thrift protocol
+  #     - "5778:5778"      # agent:      server configs
+  #     - "14268:14268"    # collector:  accept jaeger.thrift directly from clients
+  #     - "14250:14250"    # collector:  accept model.proto
+  #     - "9411:9411"      # collector:  Zipkin compatible endpoint (optional)
+  #     - "16686:16686"    # query:      server frontend
+  #   networks:
+  #     main:
+  #       aliases:
+  #         - jaeger
+  service_one:
+    container_name: dev_service_one
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    command: dotnet run -p /ServiceOne
+    restart: always
+    ports:
+      - 8001:8001
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./ServiceOne:/ServiceOne
+    networks:
+      main:
+        aliases:
+          - service_one
+networks:
+  main:
+
