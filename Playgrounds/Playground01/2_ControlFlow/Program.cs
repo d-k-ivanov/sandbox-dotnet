@@ -11,39 +11,40 @@ namespace _2_ControlFlow
         {
             ConsoleUtils.PrintSeparator();
 
-            // AmITooFat();
-            // ConsoleUtils.PrintSeparator();
-
-            // Loops();
-            // ConsoleUtils.PrintSeparator();
-
-            // SumArray();
-            // ConsoleUtils.PrintSeparator();
-
-            // FindAntiDuples();
-            // ConsoleUtils.PrintSeparator();
-
-            // FindAntiTriples();
-            // ConsoleUtils.PrintSeparator();
-
-            // PadawanDetection();
-            // ConsoleUtils.PrintSeparator();
-
-            // FibonacciNumbers();
-            // ConsoleUtils.PrintSeparator();
-
-            // Factorial();
-            // ConsoleUtils.PrintSeparator();
-
-            Averages();
-            // ConsoleUtils.PrintSeparator();
-
-
-            // ConsoleUtils.PrintSeparator();
-
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
+        }
+
+        private static void StartAll()
+        {
+            AmITooFat();
+            ConsoleUtils.PrintSeparator();
+
+            Loops();
+            ConsoleUtils.PrintSeparator();
+
+            SumArray();
+            ConsoleUtils.PrintSeparator();
+
+            FindAntiDuples();
+            ConsoleUtils.PrintSeparator();
+
+            FindAntiTriples();
+            ConsoleUtils.PrintSeparator();
+
+            PadawanDetection();
+            ConsoleUtils.PrintSeparator();
+
+            FibonacciNumbers();
+            ConsoleUtils.PrintSeparator();
+
+            Factorial();
+            ConsoleUtils.PrintSeparator();
+
+            Averages();
+            ConsoleUtils.PrintSeparator();
         }
 
         private static void AmITooFat()
