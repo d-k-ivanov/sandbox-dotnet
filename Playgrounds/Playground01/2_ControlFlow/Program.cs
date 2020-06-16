@@ -32,10 +32,10 @@ namespace _2_ControlFlow
             // FibonacciNumbers();
             // ConsoleUtils.PrintSeparator();
 
-            Factorial();
+            // Factorial();
             // ConsoleUtils.PrintSeparator();
 
-
+            Averages();
             // ConsoleUtils.PrintSeparator();
 
 
@@ -387,6 +387,44 @@ namespace _2_ControlFlow
                     break;
             }
             Console.WriteLine($"{n}! = {ans}");
+        }
+
+        private static void Averages()
+        {
+            const ushort max = 10;
+            var numbers = new long[max];
+
+            ushort n = 0;
+            do
+            {
+                Console.Write($"Enter number #{n+1}: ");
+                numbers[n] = long.Parse(Console.ReadLine() ?? "0");
+                if(numbers[n] == 0)
+                    break;
+                n++;
+            } while (n < max);
+
+            // "Arithmetic mean"
+            // ""
+            // ""
+
+            double arithmetic   = 0.0;
+            double geometric    = 1.0;
+            double harmonic     = 0.0;
+
+            foreach (var el in numbers)
+            {
+                if (el == 0) continue;
+
+                arithmetic  += el;
+                geometric   *= el;
+                harmonic    += 1.0 / el;
+            }
+
+            Console.WriteLine($"Arithmetic mean = {arithmetic / n}");
+            Console.WriteLine($"Geometric mean  = {Math.Pow(geometric, 1.0 / n)}");
+            Console.WriteLine($"Harmonic mean   = {n / harmonic}");
+
         }
     }
 }
