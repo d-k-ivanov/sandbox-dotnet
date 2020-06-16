@@ -404,13 +404,9 @@ namespace _2_ControlFlow
                 n++;
             } while (n < max);
 
-            // "Arithmetic mean"
-            // ""
-            // ""
-
-            double arithmetic   = 0.0;
-            double geometric    = 1.0;
-            double harmonic     = 0.0;
+            var arithmetic   = 0.0;
+            var geometric    = 1.0;
+            var harmonic     = 0.0;
 
             foreach (var el in numbers)
             {
@@ -424,7 +420,6 @@ namespace _2_ControlFlow
             Console.WriteLine($"Arithmetic mean = {arithmetic / n}");
             Console.WriteLine($"Geometric mean  = {Math.Pow(geometric, 1.0 / n)}");
             Console.WriteLine($"Harmonic mean   = {n / harmonic}");
-
         }
     }
 }
