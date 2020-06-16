@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1_BaseFeatures
 {
-    internal class HomeWork
+    internal static class HomeWork
     {
         internal static void HeronArea()
         {

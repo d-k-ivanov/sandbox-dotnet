@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace _1_BaseFeatures
 {
-    internal class DataTypes
+    internal static class DataTypes
     {
         internal static void PrintDataTypes()
         {

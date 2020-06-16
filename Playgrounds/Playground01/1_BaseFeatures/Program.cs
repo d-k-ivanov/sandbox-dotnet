@@ -3,7 +3,7 @@ using CSCLib;
 
 namespace _1_BaseFeatures
 {
-    internal class Program
+    internal static class Program
     {
         private static void Main(string[] args)
         {
@@ -36,7 +36,7 @@ namespace _1_BaseFeatures
             Strings.PrintStringsComparison();
             ConsoleUtils.PrintSeparator();
 
-            InputOutput.IOBasics();
+            InputOutput.IoBasics();
             ConsoleUtils.PrintSeparator();
 
             DataTypes.TypeConversions();

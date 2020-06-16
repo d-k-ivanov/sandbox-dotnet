@@ -5,7 +5,7 @@ using CSCLib;
 
 namespace _2_ControlFlow
 {
-    internal class Program
+    internal static class Program
     {
         static void Main(string[] args)
         {

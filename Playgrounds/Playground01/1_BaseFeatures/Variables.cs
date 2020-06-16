@@ -2,7 +2,7 @@ using System;
 
 namespace _1_BaseFeatures
 {
-    internal class Variables
+    internal static class Variables
     {
         internal static void PrintVariables()
         {

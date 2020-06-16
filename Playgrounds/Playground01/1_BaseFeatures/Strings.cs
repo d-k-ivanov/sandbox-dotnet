@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace _1_BaseFeatures
 {
-    internal class Strings
+    internal static class Strings
     {
         internal static void PrintBasicStringOperations()
         {

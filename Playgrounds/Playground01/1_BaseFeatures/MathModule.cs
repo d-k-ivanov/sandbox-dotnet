@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _1_BaseFeatures
 {
-    internal class MathModule
+    internal static class MathModule
     {
         internal static void MathExamples()
         {

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace _1_BaseFeatures
 {
-    internal class InputOutput
+    internal static class InputOutput
     {
-        internal static void IOBasics()
+        internal static void IoBasics()
         {
             // Console.Clear();
             // Console.BackgroundColor = ConsoleColor.Black;
