@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CSCLib;
 
 namespace _3_Collections
@@ -18,7 +20,10 @@ namespace _3_Collections
         private static void StartAll()
         {
             Arrays();
-            // ConsoleUtils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
+
+            Lists();
+
         }
 
         private static void Arrays()
@@ -70,6 +75,66 @@ namespace _3_Collections
             Console.WriteLine();
 
 
+        }
+
+        private static void Lists()
+        {
+            var list1 = new List<int>() {1, 6, 23, 6, 12, 1, 5, 9};
+            list1.Add(10);
+            foreach (var i in list1)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            int[] ar1 = {1, 6, 14};
+            list1.AddRange(ar1);
+
+            foreach (var i in list1)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            if (list1.Remove(14))
+            {
+                Console.WriteLine("Item removed");
+            }
+            else
+            {
+                Console.WriteLine("Item not found");
+            }
+
+            list1.RemoveAt(0);
+
+            foreach (var i in list1)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            list1.Reverse();
+
+            foreach (var i in list1)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            bool contains = list1.Contains(4);
+
+            int min = list1.Min();
+            int max = list1.Max();
+            Console.WriteLine($"Min={min}\tMax={max}");
+
+            Console.WriteLine($"IndexOf(6)={list1.IndexOf(6)}");
+            Console.WriteLine($"LastIndexOf(6)={list1.LastIndexOf(6)}");
+
+            for (int i = 0; i < list1.Count; i++)
+            {
+                Console.Write($"{list1[i]} ");
+            }
+            Console.WriteLine();
         }
     }
 }
