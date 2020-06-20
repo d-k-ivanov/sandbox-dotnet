@@ -10,9 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_ControlFlow", "2_ControlFlow\2_ControlFlow.csproj", "{B8E1EDCA-E984-466D-82FD-0C7B6D1D59F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2_ControlFlow", "2_ControlFlow\2_ControlFlow.csproj", "{B8E1EDCA-E984-466D-82FD-0C7B6D1D59F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSCLib", "CSCLib\CSCLib.csproj", "{9505DA6C-BA08-4384-AE22-22094607EED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSCLib", "CSCLib\CSCLib.csproj", "{9505DA6C-BA08-4384-AE22-22094607EED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_Collections", "3_Collections\3_Collections.csproj", "{E9904868-D61F-419F-ACEA-BCDFAF2E1052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{9505DA6C-BA08-4384-AE22-22094607EED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9505DA6C-BA08-4384-AE22-22094607EED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9505DA6C-BA08-4384-AE22-22094607EED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9904868-D61F-419F-ACEA-BCDFAF2E1052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9904868-D61F-419F-ACEA-BCDFAF2E1052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9904868-D61F-419F-ACEA-BCDFAF2E1052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9904868-D61F-419F-ACEA-BCDFAF2E1052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

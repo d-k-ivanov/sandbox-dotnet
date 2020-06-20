@@ -55,6 +55,10 @@ namespace _1_BaseFeatures
             ConsoleUtils.PrintSeparator();
 
             HomeWork.UserProfile();
+            ConsoleUtils.PrintSeparator();
+
+
+            ConsoleUtils.PrintSeparator();
 
 
             // -----------------------------------------------
