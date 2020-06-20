@@ -11,8 +11,7 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            ArraysMultyDim();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -35,8 +34,13 @@ namespace _3_Collections
             Queues();
             ConsoleUtils.PrintSeparator();
 
-            ArraysMultyDim();
+            ArraysMultiDim();
+            ConsoleUtils.PrintSeparator();
 
+            ArraysJagged();
+            ConsoleUtils.PrintSeparator();
+
+            ArraysCustom();
         }
 
         private static void Arrays()
@@ -51,6 +55,7 @@ namespace _3_Collections
             {
                 Console.Write($"{item} ");
             }
+
             Console.WriteLine();
 
             int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -86,8 +91,6 @@ namespace _3_Collections
             }
 
             Console.WriteLine();
-
-
         }
 
         private static void Lists()
@@ -98,6 +101,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             int[] ar1 = {1, 6, 14};
@@ -107,6 +111,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             if (list1.Remove(14))
@@ -124,6 +129,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             list1.Reverse();
@@ -132,6 +138,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             bool contains = list1.Contains(4);
@@ -147,6 +154,7 @@ namespace _3_Collections
             {
                 Console.Write($"{list1[i]} ");
             }
+
             Console.WriteLine();
         }
 
@@ -182,6 +190,7 @@ namespace _3_Collections
             {
                 Console.Write($"{pair} ");
             }
+
             Console.WriteLine();
 
             bool containsKey = people2.ContainsKey(2);
@@ -193,6 +202,7 @@ namespace _3_Collections
             {
                 Console.Write($"{pair} ");
             }
+
             Console.WriteLine();
 
             if (people2.TryAdd(2, "Simon"))
@@ -210,6 +220,7 @@ namespace _3_Collections
             {
                 Console.Write($"{pair} ");
             }
+
             Console.WriteLine();
 
             if (people2.TryGetValue(4, out string val))
@@ -236,6 +247,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             Console.WriteLine($"st0.Pop: {st0.Pop()}");
@@ -245,6 +257,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             Console.WriteLine($"st0.Peek: {st0.Peek()}");
@@ -254,6 +267,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             for (int i = 0; i < 10; i++)
@@ -265,6 +279,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
         }
@@ -281,6 +296,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             Console.WriteLine($"qu0.Dequeue: {qu0.Dequeue()}");
@@ -290,6 +306,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             Console.WriteLine($"qu0.Peek: {qu0.Peek()}");
@@ -299,6 +316,7 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
             for (int i = 0; i < 10; i++)
@@ -310,14 +328,97 @@ namespace _3_Collections
             {
                 Console.Write($"{i} ");
             }
+
             Console.WriteLine();
 
         }
 
-        private static void ArraysMultyDim()
+        private static void ArraysMultiDim()
         {
-            throw new NotImplementedException();
+            int[,] a1 = new int[2, 3];
+            int[,] a2 = new int[2, 3] {{1, 2, 3,}, {4, 5, 6}};
+            int[,] a3 = {{1, 2, 3,}, {4, 5, 6}};
+            Array a4 = Array.CreateInstance(typeof(int), 2, 3);
+
+            Array.Copy(a3, a4, a3.Length);
+            foreach (var item in a4)
+            {
+                Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+
+            Array.Clear(a2, 0, a2.Length);
+            foreach (var number in a2)
+            {
+                Console.Write($"{number} ");
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < a3.GetLength(0); i++)
+            {
+                for (int j = 0; j < a3.GetLength(1); j++)
+                {
+                    Console.Write($"a3[{i},{j}]={a3[i, j]}\t");
+                }
+
+                Console.WriteLine();
+            }
         }
 
+        private static void ArraysJagged()
+        {
+            int[][] ja1 = new int[4][];
+            ja1[0] = new int[1];
+            ja1[1] = new int[3];
+            ja1[2] = new int[2];
+            ja1[3] = new int[4];
+
+            Random rnd = new Random();
+
+            for (var i = 0; i < ja1.Length; i++)
+            {
+                for (var j = 0; j < ja1[i].Length; j++)
+                {
+                    // Console.Write($"Enter value for JaggedArray[{i}][{j}]: ");
+                    // ja1[i][j] = int.Parse(Console.ReadLine() ?? "0");
+                    ja1[i][j] = rnd.Next(10, 99);
+                }
+            }
+
+            Console.WriteLine("Print Jagged Array:");
+            foreach (var i in ja1)
+            {
+                foreach (var j in i)
+                {
+                    Console.Write($"JaggedArray[{ja1.Length},{i.Length}]={j}\t");
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        private static void ArraysCustom()
+        {
+            var arrayIndexedFromOne  = Array.CreateInstance(typeof(int), new[] {5}, new[] {1});
+
+            var rnd = new Random();
+
+            for (var i = 1; i <= arrayIndexedFromOne.Length; i++)
+            {
+                arrayIndexedFromOne.SetValue(rnd.Next(10, 99), i);
+            }
+
+            foreach (var item in arrayIndexedFromOne)
+            {
+                Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Starting Index:\t{arrayIndexedFromOne.GetLowerBound(0)}");
+            Console.WriteLine($"Ending Index:\t{arrayIndexedFromOne.GetUpperBound(0)}");
+        }
     }
 }
