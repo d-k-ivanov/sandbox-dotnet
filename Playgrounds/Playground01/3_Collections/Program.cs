@@ -12,7 +12,7 @@ namespace _3_Collections
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            Dictionaries();
+            ArraysMultyDim();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -27,6 +27,15 @@ namespace _3_Collections
             ConsoleUtils.PrintSeparator();
 
             Dictionaries();
+            ConsoleUtils.PrintSeparator();
+
+            Stacks();
+            ConsoleUtils.PrintSeparator();
+
+            Queues();
+            ConsoleUtils.PrintSeparator();
+
+            ArraysMultyDim();
 
         }
 
@@ -214,5 +223,101 @@ namespace _3_Collections
 
             people.Clear();
         }
+
+        private static void Stacks()
+        {
+            var st0 = new Stack<int>();
+            st0.Push(1);
+            st0.Push(2);
+            st0.Push(5);
+            st0.Push(7);
+
+            foreach (var i in st0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"st0.Pop: {st0.Pop()}");
+            Console.WriteLine($"st0.Pop: {st0.Pop()}");
+
+            foreach (var i in st0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"st0.Peek: {st0.Peek()}");
+            Console.WriteLine($"st0.Peek: {st0.Peek()}");
+
+            foreach (var i in st0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < 10; i++)
+            {
+                st0.Push(i);
+            }
+
+            foreach (var i in st0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+        }
+
+        private static void Queues()
+        {
+            var qu0 = new Queue<int>();
+            qu0.Enqueue(1);
+            qu0.Enqueue(2);
+            qu0.Enqueue(5);
+            qu0.Enqueue(7);
+
+            foreach (var i in qu0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"qu0.Dequeue: {qu0.Dequeue()}");
+            Console.WriteLine($"qu0.Dequeue: {qu0.Dequeue()}");
+
+            foreach (var i in qu0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine($"qu0.Peek: {qu0.Peek()}");
+            Console.WriteLine($"qu0.Peek: {qu0.Peek()}");
+
+            foreach (var i in qu0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < 10; i++)
+            {
+                qu0.Enqueue(i);
+            }
+
+            foreach (var i in qu0)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
+
+        }
+
+        private static void ArraysMultyDim()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
