@@ -11,7 +11,8 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            Dictionaries();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -23,6 +24,9 @@ namespace _3_Collections
             ConsoleUtils.PrintSeparator();
 
             Lists();
+            ConsoleUtils.PrintSeparator();
+
+            Dictionaries();
 
         }
 
@@ -135,6 +139,80 @@ namespace _3_Collections
                 Console.Write($"{list1[i]} ");
             }
             Console.WriteLine();
+        }
+
+        private static void Dictionaries()
+        {
+            var people = new Dictionary<int, string>();
+            people.Add(1, "John");
+            people.Add(2, "Bob");
+            people.Add(3, "Alice");
+
+            var people2 = new Dictionary<int, string> {{1, "Juan"}, {2, "Jesus"}, {3, "Veronica"}};
+
+            string name = people[1];
+            Console.WriteLine($"people2[1] = {people2[1]}\tpeople2[2] = {people2[2]}\tpeople2[3] = {people2[3]}");
+
+            Console.Write("people2 keys: ");
+            foreach (var people2Key in people2.Keys)
+            {
+                Console.Write($"{people2Key} ");
+            }
+
+            Console.WriteLine();
+
+            Console.Write("people2 values: ");
+            foreach (var people2Value in people2.Values)
+            {
+                Console.Write($"{people2Value} ");
+            }
+
+            Console.WriteLine();
+
+            foreach (var pair in people)
+            {
+                Console.Write($"{pair} ");
+            }
+            Console.WriteLine();
+
+            bool containsKey = people2.ContainsKey(2);
+            bool containsValue = people2.ContainsValue("John");
+            bool containsValue2 = people2.ContainsValue("Jesus");
+
+            people.Remove(1);
+            foreach (var pair in people)
+            {
+                Console.Write($"{pair} ");
+            }
+            Console.WriteLine();
+
+            if (people2.TryAdd(2, "Simon"))
+            {
+                Console.WriteLine("Simon added to people2");
+            }
+            else
+            {
+                Console.WriteLine("Simon not added to people2. Adding with different key...");
+
+                people2.TryAdd(4, "Simon");
+            }
+
+            foreach (var pair in people2)
+            {
+                Console.Write($"{pair} ");
+            }
+            Console.WriteLine();
+
+            if (people2.TryGetValue(4, out string val))
+            {
+                Console.WriteLine($"Key found: {val}");
+            }
+            else
+            {
+                Console.WriteLine("Key not found...");
+            }
+
+            people.Clear();
         }
     }
 }
