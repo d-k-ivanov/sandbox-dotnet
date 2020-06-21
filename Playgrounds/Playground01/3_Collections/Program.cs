@@ -13,8 +13,7 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            RomanLettersConverter();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -44,6 +43,9 @@ namespace _3_Collections
             ConsoleUtils.PrintSeparator();
 
             ArraysCustom();
+            ConsoleUtils.PrintSeparator();
+
+            RomanLettersConverter();
         }
 
         private static void Arrays()
