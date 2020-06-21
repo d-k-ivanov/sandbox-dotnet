@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using CSCLib;
 
 namespace _3_Collections
@@ -11,7 +13,8 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            RomanLettersConverter();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -175,7 +178,6 @@ namespace _3_Collections
             {
                 Console.Write($"{people2Key} ");
             }
-
             Console.WriteLine();
 
             Console.Write("people2 values: ");
@@ -419,6 +421,81 @@ namespace _3_Collections
 
             Console.WriteLine($"Starting Index:\t{arrayIndexedFromOne.GetLowerBound(0)}");
             Console.WriteLine($"Ending Index:\t{arrayIndexedFromOne.GetUpperBound(0)}");
+        }
+
+        private static void RomanLettersConverter()
+        {
+            var romanNumbers = new Dictionary<char, int>
+            {
+                {'I', 1},
+                {'V', 5},
+                {'X', 10},
+                {'L', 50},
+                {'C', 100},
+                {'D', 500},
+                {'M', 1000}
+            };
+
+            string inputString;
+            while (true)
+            {
+                Console.Write("Enter roman number: ");
+                inputString = Console.ReadLine()?.ToUpper();
+                if (string.IsNullOrWhiteSpace(inputString) || inputString.Any(c => !romanNumbers.ContainsKey(c)))
+                {
+                    Console.WriteLine($"ERROR: Not Roman Number. Please use these letters: I,V,X,L,C,D,M");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            Console.Write($"{inputString} = ");
+            var answer = 0;
+            for (var i = 0; i < inputString.Length; i++)
+            {
+                if (i + 1 < inputString.Length)
+                {
+                    switch (inputString[i].ToString() + inputString[i+1].ToString())
+                    {
+                        case "IV":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 4;
+                            i++;
+                            continue;
+                        case "IX":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 9;
+                            i++;
+                            continue;
+                        case "XL":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 40;
+                            i++;
+                            continue;
+                        case "XC":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 90;
+                            i++;
+                            continue;
+                        case "CD":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 400;
+                            i++;
+                            continue;
+                        case "CM":
+                            Console.Write($"{inputString[i]}{inputString[i+1]} ");
+                            answer += 900;
+                            i++;
+                            continue;
+                    }
+                }
+
+                Console.Write($"{inputString[i]} ");
+                answer += romanNumbers[inputString[i]];
+            }
+            Console.WriteLine($"= {answer}");
         }
     }
 }
