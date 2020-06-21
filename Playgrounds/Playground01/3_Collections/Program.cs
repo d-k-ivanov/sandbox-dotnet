@@ -13,7 +13,8 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            RomanLettersConverter2();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -46,6 +47,9 @@ namespace _3_Collections
             ConsoleUtils.PrintSeparator();
 
             RomanLettersConverter();
+            ConsoleUtils.PrintSeparator();
+
+            RomanLettersConverter2();
         }
 
         private static void Arrays()
@@ -498,6 +502,26 @@ namespace _3_Collections
                 answer += romanNumbers[inputString[i]];
             }
             Console.WriteLine($"= {answer}");
+        }
+
+        private static void RomanLettersConverter2()
+        {
+            string inputString;
+            while (true)
+            {
+                Console.Write("Enter roman number: ");
+                inputString = Console.ReadLine();
+                if (!RomanNumeral.IsRoman(inputString))
+                {
+                    Console.WriteLine($"ERROR: Not Roman Number. Please use these letters: I,V,X,L,C,D,M");
+                }
+                else
+                {
+                    break;
+                }
+            }
+            RomanNumeral rn = new RomanNumeral();
+            Console.WriteLine($"{inputString} = {RomanNumeral.Parse(inputString)}");
         }
     }
 }
