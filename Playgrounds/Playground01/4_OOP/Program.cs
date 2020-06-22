@@ -25,7 +25,7 @@ namespace _4_OOP
 
         private static void CharacterRunner()
         {
-            Character c = new Character();
+            var c = new Character();
             while (c.Health > 0)
             {
                 Console.Write($"\b\rCurrent Health = {c.Health}        Damages: Spacebar = 1; Enter = 10; Delete = 50;    ");
@@ -49,7 +49,7 @@ namespace _4_OOP
 
         private static void CalculatorRunner()
         {
-            Calculator c = new Calculator();
+            var c = new Calculator();
             Console.Write("Triangle 3-5-6:\t\t");
             Console.Write($"Heron's: {c.CalcTriangleSquare(3.0,4.0,5.0)}   ");
             Console.Write($"By Height: {c.CalcTriangleSquare(3.0,4.0)}   ");
@@ -67,6 +67,11 @@ namespace _4_OOP
             Console.WriteLine();
             Console.WriteLine($"Average of 1,2,3,4: {c.Average(new []{1,2,3,4})}");
             Console.WriteLine($"Average of 1,2,3,4: {c.Average2(1, 2, 3, 4)}");
+
+            // Named Arguments:
+            c.CalcTriangleSquare(ab: 3.0,bc: 4.0,cd: 5.0);
+            c.CalcTriangleSquare(@base: 3.0,height: 4.0);
+            c.CalcTriangleSquare(ab: 3.0,ac: 4.0, angle: 90);
         }
     }
 }
