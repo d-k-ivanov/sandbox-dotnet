@@ -5,6 +5,16 @@ namespace _4_OOP
 {
     public class Calculator
     {
+        public bool TryDevide(double divisible, double divisor, out double result)
+        {
+            result = 0.0
+            if (Math.Abs(divisor) < 0.0001)
+                return false;
+            result = divisible / divisor;
+            return true;
+
+        }
+
         // Average(new []{1,2,3,4})
         public double Average(int[] numbers)
         {

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using CSCLib;
 
 namespace _4_OOP
@@ -21,6 +22,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             CalculatorRunner();
+            ConsoleUtils.PrintSeparator();
+
+            OutParameters();
         }
 
         private static void CharacterRunner()
@@ -73,5 +77,33 @@ namespace _4_OOP
             c.CalcTriangleSquare(@base: 3.0,height: 4.0);
             c.CalcTriangleSquare(ab: 3.0,ac: 4.0, angle: 90);
         }
+
+        private static void OutParameters()
+        {
+            Console.Write("Enter integer: ");
+            var integer = Console.ReadLine();
+            // var parsed = int.Parse(integer);
+            // int parsed = 0;
+            int parsed = 0;
+            var wasParsed = int.TryParse(integer, out parsed);
+            Console.WriteLine($"Entered: {(!wasParsed ? "Error: Failed to parse..." : parsed.ToString())}");
+
+            Console.WriteLine();
+
+            Console.Write("Enter integer: ");
+            var integer2 = Console.ReadLine();
+            var wasParsed2 = int.TryParse(integer, out int parsed2);
+            Console.WriteLine($"Entered: {(!wasParsed2 ? "Error: Failed to parse..." : parsed.ToString())}");
+
+            Console.WriteLine();
+            Console.WriteLine("Enter two doubles:");
+            var d1 = double.Parse(Console.ReadLine() ?? "0,0");
+            var d2 = double.Parse(Console.ReadLine() ?? "0,0");
+            var c = new Calculator();
+            bool wasDivided = c.TryDevide(d1, d2, out var result);
+            Console.WriteLine($"{d1} / {d2}: {(!wasDivided ? "Error: Failed to divide..." : result.ToString(CultureInfo.CurrentCulture))}");
+
+        }
+
     }
 }
