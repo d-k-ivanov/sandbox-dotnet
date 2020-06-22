@@ -25,6 +25,12 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             OutParameters();
+            ConsoleUtils.PrintSeparator();
+
+            StaticFields();
+            ConsoleUtils.PrintSeparator();
+
+            OptionalVariables();
         }
 
         private static void CharacterRunner()
@@ -100,10 +106,50 @@ namespace _4_OOP
             var d1 = double.Parse(Console.ReadLine() ?? "0,0");
             var d2 = double.Parse(Console.ReadLine() ?? "0,0");
             var c = new Calculator();
-            bool wasDivided = c.TryDevide(d1, d2, out var result);
+            bool wasDivided = c.TryDivide(d1, d2, out var result);
             Console.WriteLine($"{d1} / {d2}: {(!wasDivided ? "Error: Failed to divide..." : result.ToString(CultureInfo.CurrentCulture))}");
 
         }
 
+        private static void StaticFields()
+        {
+            var c1 = new Character();
+            var c2 = new Character();
+
+            Console.Write("c1 speed: ");
+            c1.PrintSpeed();
+            Console.Write("c2 speed: ");
+            c2.PrintSpeed();
+
+            Console.WriteLine("c1 is increasing speed...");
+            c1.IncreaseSpeed();
+
+            Console.Write("c1 speed: ");
+            c1.PrintSpeed();
+            Console.Write("c2 speed: ");
+            c2.PrintSpeed();
+
+            Console.WriteLine("c2 is increasing speed...");
+            c2.IncreaseSpeed();
+
+            Console.Write("c1 speed: ");
+            c1.PrintSpeed();
+            Console.Write("c2 speed: ");
+            c2.PrintSpeed();
+
+        }
+
+        private static void OptionalVariables()
+        {
+            var c = new Calculator();
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(3.0,4.0, 90f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(3.0,4.0, 1.57f, true)}");
+
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(20.0,21.0, 90f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(20.0,21.0, 1.57f, true)}");
+
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 30f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 0.5235f, true)}");
+        }
     }
 }

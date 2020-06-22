@@ -5,7 +5,7 @@ namespace _4_OOP
 {
     public class Calculator
     {
-        public bool TryDevide(double divisible, double divisor, out double result)
+        public bool TryDivide(double divisible, double divisor, out double result)
         {
             result = 0.0;
             if (Math.Abs(divisor) < 0.0001)
@@ -40,10 +40,20 @@ namespace _4_OOP
             return 0.5 * @base * height;
         }
 
-        public double CalcTriangleSquare(double ab, double ac, int angle)
+        // public double CalcTriangleSquare(double ab, double ac, int angle)
+        // {
+        //     double radians = (angle * Math.PI) / 180;
+        //     return 0.5 * ab * ac * Math.Sin(radians);
+        // }
+
+        public double CalcTriangleSquare(double ab, double ac, float angle, bool isInRadians = false)
         {
-            double radians = (angle * Math.PI) / 180;
-            return 0.5 * ab * ac * Math.Sin(radians);
+            if (isInRadians)
+            {
+                return  Math.Round(0.5 * ab * ac * Math.Sin(angle), 2, MidpointRounding.AwayFromZero);
+            }
+            var radians = (angle * Math.PI) / 180;
+            return Math.Round(0.5 * ab * ac * Math.Sin(radians), 2, MidpointRounding.AwayFromZero);
         }
     }
 }
