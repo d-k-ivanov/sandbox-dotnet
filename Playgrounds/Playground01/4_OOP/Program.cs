@@ -1,4 +1,5 @@
 using System;
+using CSCLib;
 
 namespace _4_OOP
 {
@@ -6,8 +7,26 @@ namespace _4_OOP
     {
         static void Main(string[] args)
         {
+            ConsoleUtils.PrintSeparator();
+
+            StartAll();
+
+            // -----------------------------------------------
+            ConsoleUtils.EndOfProgram();
+        }
+
+        private static void StartAll()
+        {
+            CharacterRunner();
+            ConsoleUtils.PrintSeparator();
+
+            CalculatorRunner();
+        }
+
+        private static void CharacterRunner()
+        {
             Character c = new Character();
-            while (c.Health >=0)
+            while (c.Health > 0)
             {
                 Console.Write($"\b\rCurrent Health = {c.Health}        Damages: Spacebar = 1; Enter = 10; Delete = 50;    ");
                 var keyPressed  = Console.ReadKey();
@@ -25,6 +44,12 @@ namespace _4_OOP
                         break;
                 }
             }
+            Console.WriteLine();
+        }
+
+        private static void CalculatorRunner()
+        {
+            throw new NotImplementedException();
         }
     }
 }
