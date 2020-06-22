@@ -7,7 +7,7 @@ namespace _4_OOP
     {
         public bool TryDevide(double divisible, double divisor, out double result)
         {
-            result = 0.0
+            result = 0.0;
             if (Math.Abs(divisor) < 0.0001)
                 return false;
             result = divisible / divisor;
