@@ -49,7 +49,24 @@ namespace _4_OOP
 
         private static void CalculatorRunner()
         {
-            throw new NotImplementedException();
+            Calculator c = new Calculator();
+            Console.Write("Triangle 3-5-6:\t\t");
+            Console.Write($"Heron's: {c.CalcTriangleSquare(3.0,4.0,5.0)}   ");
+            Console.Write($"By Height: {c.CalcTriangleSquare(3.0,4.0)}   ");
+            Console.WriteLine($"Trigonometric: {c.CalcTriangleSquare(3.0,4.0, 90)} ");
+
+            Console.Write("Triangle 20-21-29:\t");
+            Console.Write($"Heron's: {c.CalcTriangleSquare(20.0,21.0,29.0)} ");
+            Console.Write($"By Height: {c.CalcTriangleSquare(20.0,21.0)} ");
+            Console.WriteLine($"Trigonometric: {c.CalcTriangleSquare(20.0,21.0, 90)}");
+
+            Console.WriteLine($"Triangle Base=6, Height=5: {c.CalcTriangleSquare(6.0,5.0)} ");
+            Console.WriteLine($"Triangle Base=8, Height=9: {c.CalcTriangleSquare(8.0,9.0)} ");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30: {c.CalcTriangleSquare(7.0,9.0, 30)} ");
+
+            Console.WriteLine();
+            Console.WriteLine($"Average of 1,2,3,4: {c.Average(new []{1,2,3,4})}");
+            Console.WriteLine($"Average of 1,2,3,4: {c.Average2(1, 2, 3, 4)}");
         }
     }
 }
