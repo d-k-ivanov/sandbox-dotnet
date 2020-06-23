@@ -13,7 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            BoxingAndUnboxing();
+            ClassConstruction();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -46,6 +46,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             BoxingAndUnboxing();
+            ConsoleUtils.PrintSeparator();
+
+            ClassConstruction();
         }
 
         private static void CharacterRunner()
@@ -329,6 +332,15 @@ namespace _4_OOP
             {
                 // Do Something
             }
+        }
+
+        private static void ClassConstruction()
+        {
+            Character c = new Character("Elf");
+            Console.WriteLine($"Character: {c.Race} HP:{c.Health}");
+
+            Character c1 = new Character("Orc", 200);
+            Console.WriteLine($"Character: {c.Race} HP:{c1.Health}");
         }
     }
 }

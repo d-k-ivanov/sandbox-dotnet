@@ -35,6 +35,21 @@ namespace _4_OOP
 
         public PointRef PrRef;
 
+        // Explicit constrictor for structs is forbidden
+        // public EvilStruct()
+        // {
+        // }
+
+        // Only custom ctor and should initialize every field
+        public EvilStruct(string name, int x, int y)
+        {
+            Name = name;
+            X = x;
+            Y = y;
+            PrRef = new PointRef();
+        }
+
+
         public void LogValues()
         {
             Console.WriteLine($"EvilStruct {Name}:\tX={X}, Y={Y}");
