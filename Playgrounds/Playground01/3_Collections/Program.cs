@@ -13,8 +13,7 @@ namespace _3_Collections
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            RomanLettersConverter2();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();

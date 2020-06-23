@@ -10,7 +10,9 @@ namespace _4_OOP
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            ClassAndStruct();
+
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -31,6 +33,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             OptionalVariables();
+            ConsoleUtils.PrintSeparator();
+
+            ClassAndStruct();
         }
 
         private static void CharacterRunner()
@@ -150,6 +155,55 @@ namespace _4_OOP
 
             Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 30f)}");
             Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 0.5235f, true)}");
+        }
+
+        private static void ClassAndStruct()
+        {
+            PointVal a; // PointVal a = new PointVal();
+            a.X = 5;
+            a.Y = 9;
+
+            PointVal b = a;
+            b.X = 4;
+            b.Y = 8;
+
+            a.LogValues();
+            b.LogValues();
+
+            PointRef c = new PointRef();
+            c.X = 5;
+            c.Y = 9;
+
+            PointRef d = c;
+            d.X = 4;
+            d.Y = 8;
+
+            c.LogValues();
+            d.LogValues();
+
+            Console.WriteLine("----------------");
+
+            var es1 = new EvilStruct();
+            es1.Name = "es1";
+            es1.X = 1;
+            es1.Y = 2;
+            es1.PrRef = new PointRef() {X = 11, Y = 22};
+
+            var es2 = es1;
+            es2.Name = "es2";
+
+            es1.LogValues();
+            es2.LogValues();
+            Console.WriteLine();
+
+            es2.X = 3;
+            es2.Y = 4;
+            es2.PrRef.X = 33;
+            es2.PrRef.Y = 44;
+
+            es1.LogValues();
+            es2.LogValues();
+            Console.WriteLine();
         }
     }
 }
