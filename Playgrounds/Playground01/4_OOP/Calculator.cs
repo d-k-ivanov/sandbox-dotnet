@@ -29,24 +29,24 @@ namespace _4_OOP
             return (double) sum / numbers.Length;
         }
 
-        public double CalcTriangleSquare(double ab, double bc, double cd)
+        public double CalcTriangleArea(double ab, double bc, double ac)
         {
-            var perimeter = (ab + bc + cd) / 2;
-            return Math.Sqrt(perimeter * (perimeter - ab) * (perimeter - bc) * (perimeter - cd));
+            var perimeter = (ab + bc + ac) / 2;
+            return Math.Sqrt(perimeter * (perimeter - ab) * (perimeter - bc) * (perimeter - ac));
         }
 
-        public double CalcTriangleSquare(double @base, double height)
+        public double CalcTriangleArea(double @base, double height)
         {
             return 0.5 * @base * height;
         }
 
-        // public double CalcTriangleSquare(double ab, double ac, int angle)
+        // public double CalcTriangleArea(double ab, double ac, int angle)
         // {
         //     double radians = (angle * Math.PI) / 180;
         //     return 0.5 * ab * ac * Math.Sin(radians);
         // }
 
-        public double CalcTriangleSquare(double ab, double ac, float angle, bool isInRadians = false)
+        public double CalcTriangleArea(double ab, double ac, float angle, bool isInRadians = false)
         {
             if (isInRadians)
             {

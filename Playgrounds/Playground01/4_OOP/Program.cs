@@ -13,7 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            ClassConstruction();
+            Polymorphism();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -49,6 +49,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             ClassConstruction();
+            ConsoleUtils.PrintSeparator();
+
+            Inheritance();
         }
 
         private static void CharacterRunner()
@@ -79,27 +82,27 @@ namespace _4_OOP
         {
             var c = new Calculator();
             Console.Write("Triangle 3-5-6:\t\t");
-            Console.Write($"Heron's: {c.CalcTriangleSquare(3.0,4.0,5.0)}   ");
-            Console.Write($"By Height: {c.CalcTriangleSquare(3.0,4.0)}   ");
-            Console.WriteLine($"Trigonometric: {c.CalcTriangleSquare(3.0,4.0, 90)} ");
+            Console.Write($"Heron's: {c.CalcTriangleArea(3.0,4.0,5.0)}   ");
+            Console.Write($"By Height: {c.CalcTriangleArea(3.0,4.0)}   ");
+            Console.WriteLine($"Trigonometric: {c.CalcTriangleArea(3.0,4.0, 90)} ");
 
             Console.Write("Triangle 20-21-29:\t");
-            Console.Write($"Heron's: {c.CalcTriangleSquare(20.0,21.0,29.0)} ");
-            Console.Write($"By Height: {c.CalcTriangleSquare(20.0,21.0)} ");
-            Console.WriteLine($"Trigonometric: {c.CalcTriangleSquare(20.0,21.0, 90)}");
+            Console.Write($"Heron's: {c.CalcTriangleArea(20.0,21.0,29.0)} ");
+            Console.Write($"By Height: {c.CalcTriangleArea(20.0,21.0)} ");
+            Console.WriteLine($"Trigonometric: {c.CalcTriangleArea(20.0,21.0, 90)}");
 
-            Console.WriteLine($"Triangle Base=6, Height=5: {c.CalcTriangleSquare(6.0,5.0)} ");
-            Console.WriteLine($"Triangle Base=8, Height=9: {c.CalcTriangleSquare(8.0,9.0)} ");
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30: {c.CalcTriangleSquare(7.0,9.0, 30)} ");
+            Console.WriteLine($"Triangle Base=6, Height=5: {c.CalcTriangleArea(6.0,5.0)} ");
+            Console.WriteLine($"Triangle Base=8, Height=9: {c.CalcTriangleArea(8.0,9.0)} ");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30: {c.CalcTriangleArea(7.0,9.0, 30)} ");
 
             Console.WriteLine();
             Console.WriteLine($"Average of 1,2,3,4: {c.Average(new []{1,2,3,4})}");
             Console.WriteLine($"Average of 1,2,3,4: {c.Average2(1, 2, 3, 4)}");
 
             // Named Arguments:
-            c.CalcTriangleSquare(ab: 3.0,bc: 4.0,cd: 5.0);
-            c.CalcTriangleSquare(@base: 3.0,height: 4.0);
-            c.CalcTriangleSquare(ab: 3.0,ac: 4.0, angle: 90);
+            c.CalcTriangleArea(ab: 3.0,bc: 4.0,ac: 5.0);
+            c.CalcTriangleArea(@base: 3.0,height: 4.0);
+            c.CalcTriangleArea(ab: 3.0,ac: 4.0, angle: 90);
         }
 
         private static void OutParameters()
@@ -160,14 +163,14 @@ namespace _4_OOP
         private static void OptionalVariables()
         {
             var c = new Calculator();
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(3.0,4.0, 90f)}");
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(3.0,4.0, 1.57f, true)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(3.0,4.0, 90f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(3.0,4.0, 1.57f, true)}");
 
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(20.0,21.0, 90f)}");
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(20.0,21.0, 1.57f, true)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(20.0,21.0, 90f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(20.0,21.0, 1.57f, true)}");
 
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 30f)}");
-            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleSquare(7.0,9.0, 0.5235f, true)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(7.0,9.0, 30f)}");
+            Console.WriteLine($"Triangle AB=7, AC=9, Angle=30 deg: {c.CalcTriangleArea(7.0,9.0, 0.5235f, true)}");
         }
 
         private static void ClassAndStruct()
@@ -342,5 +345,34 @@ namespace _4_OOP
             Character c1 = new Character("Orc", 200);
             Console.WriteLine($"Character: {c.Race} HP:{c1.Health}");
         }
+
+        private static void Inheritance()
+        {
+            Ingenico in112233 = new Ingenico("112233");
+            in112233.Connect();
+
+            Telco tl556677 = new Telco("556677");
+            tl556677.Connect();
+
+            SZFP sz889944 = new SZFP("889944");
+            sz889944.Connect();
+        }
+
+        private static void Polymorphism()
+        {
+            // Shape shape = new Shape(); // Abstract  class couldn't be created
+
+            Shape[] shapes = new Shape[2];
+            shapes[0] = new Triangle(20,21,29);
+            shapes[1] = new Rectangle(10,20);
+
+            foreach (Shape shape in shapes)
+            {
+                shape.Draw();
+                Console.WriteLine($"Area of shape: {shape.Area()}");
+                Console.WriteLine($"Perimeter of shape: {shape.Perimeter()}");
+            }
+        }
+
     }
 }
