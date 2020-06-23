@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using CSCLib;
 
 namespace _4_OOP
@@ -11,8 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            ClassAndStruct();
-
+            BoxingAndUnboxing();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -36,6 +37,15 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             ClassAndStruct();
+            ConsoleUtils.PrintSeparator();
+
+            ReferenceParameters();
+            ConsoleUtils.PrintSeparator();
+
+            NullableStructures();
+            ConsoleUtils.PrintSeparator();
+
+            BoxingAndUnboxing();
         }
 
         private static void CharacterRunner()
@@ -204,6 +214,121 @@ namespace _4_OOP
             es1.LogValues();
             es2.LogValues();
             Console.WriteLine();
+        }
+
+        private static void ReferenceParameters()
+        {
+            var list = new List<int>();
+            AddNumbers(list);
+
+            Console.Write("List: ");
+            foreach (var element in list)
+            {
+                Console.Write($"{element} ");
+            }
+
+            Console.WriteLine();
+
+            int a = 20;
+            int b = 30;
+            Console.WriteLine($"Swap. Original before: a={a}, b={b}");
+            Swap(a, b);
+            Console.WriteLine($"Swap. Original after: a={a}, b={b}");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"SwapR. Original before: a={a}, b={b}");
+            SwapR(ref a, ref b);
+            Console.WriteLine($"SwapR. Original after: a={a}, b={b}");
+
+        }
+
+        private static void AddNumbers(List<int> numbers)
+        {
+            numbers.Add(1);
+            numbers.Add(2);
+            numbers.Add(3);
+        }
+
+        private static void Swap(int a, int b)
+        {
+            Console.WriteLine($"Swap. Internal before: a={a}, b={b}");
+            int tmp = a;
+            a = b;
+            b = tmp;
+
+            Console.WriteLine($"Swap. Internal after: a={a}, b={b}");
+        }
+
+        private static void SwapR(ref int a, ref int b)
+        {
+            Console.WriteLine($"SwapR. Internal before: a={a}, b={b}");
+            int tmp = a;
+            a = b;
+            b = tmp;
+
+            Console.WriteLine($"SwapR. Internal after: a={a}, b={b}");
+        }
+
+        private static void NullableStructures()
+        {
+            PointVal pv;
+            // Console.WriteLine(pv.X); // Not initialized
+            PointRef pr = null;
+            // Console.WriteLine(pr.X); // Null Pointer Exception
+
+            PointVal? pv2 = null;
+
+            if (pv2.HasValue)
+            {
+                PointVal pv3 = pv2.Value;
+                Console.WriteLine(pv2.Value.X);
+                Console.WriteLine(pv3.X);
+            }
+
+            PointVal pv4 = pv2.GetValueOrDefault();
+
+        }
+
+        private static void BoxingAndUnboxing()
+        {
+            int x = 1;
+            object obj = x;    // Boxing
+
+            int y = (int) obj; // Unboxing
+
+            double pi = 3.14;
+            object obj2 = pi;
+
+            // double number = (int) obj2;      // Invalid Cast Exception
+            double number = (int)(double) obj2; // Possible workaround
+            Console.WriteLine(number);
+
+            var point = new PointRef();
+            DoSomething(point);
+            Console.WriteLine($"PointRef: x={point.X}, y={point.Y}");
+
+        }
+
+        private static void DoSomething(object o)
+        {
+            if (o is PointRef)
+            {
+                PointRef pr = (PointRef) o;
+                pr.X = 11;
+                pr.Y = 22;
+            }
+
+            PointRef pr2 = o as PointRef;
+            if (pr2 != null)
+            {
+                // Do Something
+            }
+
+            if (o is PointRef pr3)
+            {
+                // Do Something
+            }
         }
     }
 }
