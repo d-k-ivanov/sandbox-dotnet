@@ -444,6 +444,25 @@ namespace _4_OOP
             }
             Console.WriteLine();
 
+            // object[] newItems = {101, 102, 103, 104, 105, 106, 107, 108, 109, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119};
+            object[] newItems = {101, 102, 103, 104, 105, 106, 107, 108, 109, 109, 110, 111, 112};
+            collection.AddRange(newItems);
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            collection.RemoveLastN(8);
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
         }
 
     }

@@ -19,6 +19,26 @@ namespace _4_OOP
     //     public abstract void RemoveLast(object obj);
     // }
 
+    public static class BaseCollectionExtension
+    {
+        public static void AddRange(this IBaseCollection collection, IEnumerable<object> objects)
+        {
+            foreach (var obj in objects)
+            {
+                collection.Add(obj);
+            }
+
+
+        }
+
+        public static void RemoveLastN(this IBaseCollection collection, int numberOfItems)
+        {
+            for (int i = 0; i < numberOfItems; i++)
+            {
+                collection.RemoveLast("something");
+            }
+        }
+    }
 
     public class BaseList : IBaseCollection
     {
