@@ -13,7 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            Polymorphism();
+            Interfaces();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -52,6 +52,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             Inheritance();
+            ConsoleUtils.PrintSeparator();
+
+            Interfaces();
         }
 
         private static void CharacterRunner()
@@ -372,6 +375,75 @@ namespace _4_OOP
                 Console.WriteLine($"Area of shape: {shape.Area()}");
                 Console.WriteLine($"Perimeter of shape: {shape.Perimeter()}");
             }
+        }
+
+        private static void Interfaces()
+        {
+            IBaseCollection collection = new BaseList(4);
+            collection.Add(11);
+            collection.Add(22);
+            collection.Add(33);
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            collection.RemoveLast("something");
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            collection.RemoveLast("something");
+            collection.RemoveLast("something");
+            collection.Add(55);
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            collection.Add(61);
+            collection.Add(63);
+            collection.Add(65);
+            collection.Add(67);
+            collection.Add(69);
+            collection.Add(71);
+            collection.Add(73);
+            collection.Add(75);
+            collection.Add(77);
+            collection.Add(79);
+            collection.Add(81);
+            collection.Add(83);
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            collection.RemoveLast("something");
+            collection.RemoveLast("something");
+            collection.RemoveLast("something");
+            collection.RemoveLast("something");
+            collection.RemoveLast("something");
+
+            Console.Write($"My Collection Size={collection.Size()}:\t");
+            foreach (var item in collection)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
         }
 
     }
