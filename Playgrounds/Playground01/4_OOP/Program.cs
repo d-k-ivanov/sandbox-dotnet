@@ -13,7 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            MyStackRunner();
+            MyStackGRunner();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -61,6 +61,12 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             EvilInheritance();
+            ConsoleUtils.PrintSeparator();
+
+            MyStackRunner();
+            ConsoleUtils.PrintSeparator();
+
+            MyStackGRunner();
         }
 
         private static void CharacterRunner()
@@ -549,6 +555,38 @@ namespace _4_OOP
             Console.WriteLine();
             ms.ListStack();
             Console.WriteLine();
+        }
+
+        private static void MyStackGRunner()
+        {
+            MyStackG<int> ms_i = new MyStackG<int>();
+
+            ms_i.Push(1);
+            ms_i.Push(2);
+            ms_i.Push(3);
+            ms_i.Push(4);
+            ms_i.Push(5);
+            ms_i.Push(6);
+            // ms_i.Push("aaa");
+            // ms_i.Push(0.1);
+            // ms_i.Push(Decimal.MaxValue);
+            // ms_i.Push(new Character("Elf"));
+
+            Console.WriteLine($"MyStack: Elements={ms_i.Count}, Capacity={ms_i.Capacity}, Last Element={ms_i.Peek()}");
+            ms_i.ListStack();
+            Console.WriteLine("\n");
+
+            var ms_s = new MyStackG<string>();
+
+            ms_s.Push("Elf");
+            ms_s.Push("Human");
+            ms_s.Push("Orc");
+            ms_s.Push("Dwarf");
+            ms_s.Push("Gnome");
+            ms_s.Push("Halfling");
+
+            Console.WriteLine($"MyStack: Elements={ms_s.Count}, Capacity={ms_s.Capacity}, Last Element={ms_s.Peek()}");
+            ms_s.ListStack();
         }
 
     }
