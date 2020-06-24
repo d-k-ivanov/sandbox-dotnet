@@ -12,13 +12,12 @@ namespace _4_OOP
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            MyStackRunner();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
         }
-
-
 
         private static void StartAll()
         {
@@ -53,6 +52,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             Inheritance();
+            ConsoleUtils.PrintSeparator();
+
+            Polymorphism();
             ConsoleUtils.PrintSeparator();
 
             Interfaces();
@@ -482,5 +484,72 @@ namespace _4_OOP
             IShape square = new Square() {SideLenght = 10};
             Console.WriteLine($"Square area = {square.CalcArea()}");
         }
+
+        private static void MyStackRunner()
+        {
+            MyStack ms = new MyStack();
+
+            ms.Push(1);
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+
+            ms.Push(2);
+            ms.Push(3);
+
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+
+            ms.Push(4);
+            ms.Push(5);
+            ms.Push(6);
+
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+
+            Console.WriteLine($"MyStack: Popped element = {ms.Pop()}");
+            Console.WriteLine($"MyStack: Popped element = {ms.Pop()}");
+            Console.WriteLine($"MyStack: Popped element = {ms.Pop()}");
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+
+            ms.Push(10);
+            ms.Push(11);
+            ms.Push(12);
+            ms.Push(13);
+            ms.Push(14);
+            ms.Push(15);
+            ms.Push(16);
+            ms.Push(17);
+            ms.Push(18);
+            ms.Push(19);
+            ms.Push(20);
+            ms.Push(21);
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+
+            ms.ListStack();
+
+            Console.WriteLine("Empty all elements: ");
+            for (int i = 1; i < ms.Capacity; i++)
+            {
+                Console.Write($"{ms.Pop()} ");
+            }
+            Console.WriteLine();
+
+            ms.ListStack();
+            // Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}");
+
+            Console.WriteLine("Fil stack with elements: ");
+            for (int i = 1; i < 130; i++)
+            {
+                // Console.Write($"{i} ");
+                ms.Push(i);
+                Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+            Console.WriteLine();
+            ms.ListStack();
+            Console.WriteLine();
+        }
+
     }
 }
