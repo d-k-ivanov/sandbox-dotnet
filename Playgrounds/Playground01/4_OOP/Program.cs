@@ -12,12 +12,13 @@ namespace _4_OOP
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            Interfaces();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
         }
+
+
 
         private static void StartAll()
         {
@@ -55,6 +56,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             Interfaces();
+            ConsoleUtils.PrintSeparator();
+
+            EvilInheritance();
         }
 
         private static void CharacterRunner()
@@ -465,5 +469,18 @@ namespace _4_OOP
             Console.WriteLine();
         }
 
+        private static void EvilInheritance()
+        {
+            // Rect rect   = new Rect() {Height = 10, Width = 20};
+            // Console.WriteLine($"Rect area = {AreaCalculator.CalcArea(rect)}");
+            //
+            // Rect square = new Square() {Height = 10, Width = 10};
+            // Console.WriteLine($"Rect area = {AreaCalculator.CalcArea(square)}");
+
+            IShape rect = new Rect() {Height = 10, Width = 20};
+            Console.WriteLine($"Rect area = {rect.CalcArea()}");
+            IShape square = new Square() {SideLenght = 10};
+            Console.WriteLine($"Square area = {square.CalcArea()}");
+        }
     }
 }
