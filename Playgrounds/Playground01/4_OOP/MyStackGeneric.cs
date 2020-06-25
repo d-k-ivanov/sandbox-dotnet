@@ -1,10 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace _4_OOP
 {
-    public class MyStackG<T>
+    public class MyStackG<T> : IEnumerable<T>
     {
         private T[] _items;
 
@@ -71,6 +72,16 @@ namespace _4_OOP
                 Console.Write($"{item} ");
             }
             Console.WriteLine();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new StackEnumerator<T>(_items);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

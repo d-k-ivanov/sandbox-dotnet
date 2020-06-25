@@ -13,7 +13,7 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            MyStackGRunner();
+            ForEachable();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -67,6 +67,9 @@ namespace _4_OOP
             ConsoleUtils.PrintSeparator();
 
             MyStackGRunner();
+            ConsoleUtils.PrintSeparator();
+
+            ForEachable();
         }
 
         private static void CharacterRunner()
@@ -588,6 +591,64 @@ namespace _4_OOP
             Console.WriteLine($"MyStack: Elements={ms_s.Count}, Capacity={ms_s.Capacity}, Last Element={ms_s.Peek()}");
             ms_s.ListStack();
         }
+
+        private static void ForEachable()
+        {
+            var ms = new MyStack();
+            for (var i = 1; i < 130; i++)
+            {
+                ms.Push(i);
+            }
+            Console.WriteLine("My Stack: ");
+            uint ccc = 0;
+            foreach (var i in ms)
+            {
+                Console.Write($"{i}\t");
+                ccc++;
+                if (ccc % 10 == 0)
+                    Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine($"MyStack: Elements={ms.Count}, Capacity={ms.Capacity}, Last Element={ms.Peek()}");
+            Console.WriteLine("\n");
+
+            var msI = new MyStackG<int>();
+            for (var i = 1; i < 130; i++)
+            {
+                msI.Push(i);
+            }
+            Console.WriteLine("My Stack<int>: ");
+            ccc = 0;
+            foreach (var i in msI)
+            {
+                Console.Write($"{i}\t");
+                ccc++;
+                if (ccc % 10 == 0)
+                    Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine($"MyStack: Elements={msI.Count}, Capacity={msI.Capacity}, Last Element={msI.Peek()}");
+            Console.WriteLine("\n");
+
+            var msS = new MyStackG<string>();
+            for (var i = 1; i < 130; i++)
+            {
+                msS.Push($"item_{i}");
+            }
+            Console.WriteLine("My Stack<string>: ");
+            ccc = 0;
+            foreach (var i in msS)
+            {
+                Console.Write($"{i}   \t");
+                ccc++;
+                if (ccc % 6 == 0)
+                    Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine($"MyStack: Elements={msS.Count}, Capacity={msS.Capacity}, Last Element={msS.Peek()}");
+
+        }
+
 
     }
 }
