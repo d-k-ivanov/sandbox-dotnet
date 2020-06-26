@@ -74,10 +74,19 @@ namespace _4_OOP
             Console.WriteLine();
         }
 
+        // public IEnumerator<T> GetEnumerator()
+        // {
+        //     return new StackEnumerator<T>(_items);
+        // }
+
         public IEnumerator<T> GetEnumerator()
         {
-            return new StackEnumerator<T>(_items);
+            for (int i = Count - 1; i >= 0; i--)
+            {
+                yield return _items[i];
+            }
         }
+
 
         IEnumerator IEnumerable.GetEnumerator()
         {
