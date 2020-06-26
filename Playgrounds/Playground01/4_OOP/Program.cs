@@ -12,8 +12,7 @@ namespace _4_OOP
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            ForEachable();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -648,7 +647,6 @@ namespace _4_OOP
             Console.WriteLine($"MyStack: Elements={msS.Count}, Capacity={msS.Capacity}, Last Element={msS.Peek()}");
 
         }
-
 
     }
 }
