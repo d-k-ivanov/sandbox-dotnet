@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 using CSCLib;
@@ -20,7 +21,16 @@ namespace _6_Streams
         private static void StartAll()
         {
             FilesAndStreams();
-            // ConsoleUtils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
+
+            try
+            {
+                FileSystemRunner();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         private static void FilesAndStreams()
@@ -124,5 +134,74 @@ namespace _6_Streams
                 Console.WriteLine(line);
             }
         }
+
+        private static void FileSystemRunner()
+        {
+            // Test Data
+            File.WriteAllLines("test20.txt",
+                new string[]
+                {
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20",
+                    "Test20-Test20-Test20"
+                });
+            // End of Test Data
+
+
+            // File.Copy("test20.txt", @"D:\text21.txt", overwrite: true);
+            File.Copy("test20.txt", "test21.txt", overwrite: true);
+
+            // System.Threading.Thread.Sleep(1000);
+            File.Move("test21.txt","test22.txt", overwrite: true);
+            File.Copy("test22.txt","test22_1.txt", overwrite: true);
+
+            // System.Threading.Thread.Sleep(1000);
+            File.Delete("test22_1.txt");
+
+            if (File.Exists("test22.txt"))
+            {
+                File.AppendAllText("test22.txt", "bla-bla-bla");
+                File.Copy("test22.txt","test23.txt", overwrite: true);
+            }
+
+            File.Replace("test20.txt", "test23.txt", "test23.bak.txt");
+
+            var tmpDirExist = Directory.Exists(@"C:\Temp");
+            if (tmpDirExist)
+            {
+                var files = Directory.EnumerateFiles(@"C:\Temp");
+                Console.WriteLine("C:\\Temp\\: ");
+                foreach (var file in files)
+                {
+                    Console.WriteLine($"\t{file}");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("--------------");
+                Console.WriteLine();
+                files = Directory.EnumerateFiles(@"C:\Temp", "*.xlsx", SearchOption.AllDirectories);
+                Console.WriteLine("C:\\Temp\\*.xlsx: ");
+                foreach (var file in files)
+                {
+                    Console.WriteLine($"\t{file}");
+                }
+            }
+
+            // Directory.Delete(".....");
+            Console.WriteLine();
+            Console.WriteLine("--------------");
+            Console.WriteLine();
+
+            string fullPath = Path.Combine("C:", "Temp", "Super", "Folder", "text.txt");
+            Console.WriteLine(fullPath);
+
+        }
+
     }
 }
