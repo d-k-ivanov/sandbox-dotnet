@@ -41,14 +41,14 @@ namespace _5_Exceptions
                     number = int.Parse(answer);
                     loop = false;
                 }
-                catch (OverflowException ex)
+                catch (OverflowException)
                 {
                     Console.WriteLine("Error: The number is too big...");
                     // Console.WriteLine("Details: ")n
                     // Console.WriteLine(ex.ToString());
                     loop = true;
                 }
-                catch (FormatException ex)
+                catch (FormatException)
                 {
                     Console.WriteLine("Error: Incorrect data format. Only numbers are allowed...");
                     // Console.WriteLine("Details: ");
@@ -99,7 +99,7 @@ namespace _5_Exceptions
                 c2 = new Character(null, 100);
 
             }
-            catch (ArgumentNullException ex)
+            catch (ArgumentNullException)
             {
                 c2 = new Character("NuLLLLLL", 100);
             }
@@ -109,7 +109,7 @@ namespace _5_Exceptions
                 c3 = new Character("Thor", 1001);
 
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 c3 = new Character("Thor", 1);
             }
