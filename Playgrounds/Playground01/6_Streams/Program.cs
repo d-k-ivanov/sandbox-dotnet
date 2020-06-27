@@ -45,19 +45,19 @@ namespace _6_Streams
             using(Stream readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read))
             {
                 byte[] buffer = new byte[10];
-                ASCIIEncoding encoding = new ASCIIEncoding();
+                var encoding = new ASCIIEncoding();
 
                 int len = 0;
                 while ((len = readingStream.Read(buffer, 0, buffer.Length)) > 0)
                 {
-                    string str = Encoding.ASCII.GetString(buffer, 0, len);
+                    var str = Encoding.ASCII.GetString(buffer, 0, len);
                     Console.Write(str);
                 }
             }
 
             Console.WriteLine();
 
-            using(Stream readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read))
+            using (Stream readingStream = new FileStream("test.txt", FileMode.Open, FileAccess.Read))
             {
                 byte[] buffer = new byte[readingStream.Length];
 
@@ -75,53 +75,53 @@ namespace _6_Streams
                     bytesToRead -= n;
                 }
 
-                string str = Encoding.ASCII.GetString(buffer, 0, buffer.Length);
+                var str = Encoding.ASCII.GetString(buffer, 0, buffer.Length);
                 Console.Write(str);
 
-                Console.WriteLine();
-                Console.WriteLine();
+            }
 
-                File.WriteAllText("test2.txt","Test2\nTest2\nTest2\nTest2\nTest2\n");
+            Console.WriteLine();
+            Console.WriteLine();
 
-                File.WriteAllLines("test3.txt",
-                    new string[]
-                    {
-                        "Test3",
-                        "Test3",
-                        "Test3",
-                        "Test3",
-                        "Test3"
-                    });
+            File.WriteAllText("test2.txt","Test2\nTest2\nTest2\nTest2\nTest2\n");
 
-                File.WriteAllBytes("test4.txt",
-                    new byte[]
-                    {
-                        84, 101, 115, 116, 52, 10, // ASCII: Test4
-                        84, 101, 115, 116, 52, 10, // ASCII: Test4
-                        84, 101, 115, 116, 52, 10, // ASCII: Test4
-                        84, 101, 115, 116, 52, 10, // ASCII: Test4
-                        84, 101, 115, 116, 52, 10  // ASCII: Test4
-                    });
-
-                Console.WriteLine("------------------");
-
-                string[] allLines = File.ReadAllLines("test2.txt");
-                foreach (var line in allLines)
+            File.WriteAllLines("test3.txt",
+                new string[]
                 {
-                    Console.WriteLine(line);
-                }
+                    "Test3",
+                    "Test3",
+                    "Test3",
+                    "Test3",
+                    "Test3"
+                });
 
-                Console.WriteLine("------------------");
-
-                string allText = File.ReadAllText("test3.txt");
-                Console.Write(allText);
-
-                Console.WriteLine("------------------");
-                foreach (var line in File.ReadLines("test4.txt"))
+            File.WriteAllBytes("test4.txt",
+                new byte[]
                 {
-                    Console.WriteLine(line);
-                }
+                    84, 101, 115, 116, 52, 10, // ASCII: Test4
+                    84, 101, 115, 116, 52, 10, // ASCII: Test4
+                    84, 101, 115, 116, 52, 10, // ASCII: Test4
+                    84, 101, 115, 116, 52, 10, // ASCII: Test4
+                    84, 101, 115, 116, 52, 10  // ASCII: Test4
+                });
 
+            Console.WriteLine("------------------");
+
+            string[] allLines = File.ReadAllLines("test2.txt");
+            foreach (var line in allLines)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.WriteLine("------------------");
+
+            string allText = File.ReadAllText("test3.txt");
+            Console.Write(allText);
+
+            Console.WriteLine("------------------");
+            foreach (var line in File.ReadLines("test4.txt"))
+            {
+                Console.WriteLine(line);
             }
         }
     }
