@@ -21,6 +21,7 @@ namespace _7_HomeWorks
 
         public Complex Plus(Complex c)
         {
+            if (c == null) throw new ArgumentNullException(nameof(c));
             return new Complex(this.Real + c.Real, this.Imaginary + c.Imaginary);
         }
 
@@ -33,6 +34,7 @@ namespace _7_HomeWorks
 
         public Complex Minus(Complex c)
         {
+            if (c == null) throw new ArgumentNullException(nameof(c));
             return new Complex(this.Real - c.Real, this.Imaginary - c.Imaginary);
         }
 

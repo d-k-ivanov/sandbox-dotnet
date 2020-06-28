@@ -12,6 +12,14 @@ namespace CSCLib
             Console.WriteLine();
         }
 
+        public static void PrintInternalSeparator()
+        {
+            Console.WriteLine();
+            Console.WriteLine(new string('-', 50));
+            Console.WriteLine();
+        }
+
+
         public static void EndOfProgram()
         {
             PrintSeparator();
