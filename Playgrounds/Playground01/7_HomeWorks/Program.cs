@@ -1,5 +1,7 @@
 using System;
+using System.Net.Http.Headers;
 using CSCLib;
+using Microsoft.VisualBasic;
 
 namespace _7_HomeWorks
 {
@@ -9,8 +11,8 @@ namespace _7_HomeWorks
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
-            // ComplexNumbers();
+            // StartAll();
+            PlayGuessNumber();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -19,7 +21,9 @@ namespace _7_HomeWorks
         private static void StartAll()
         {
             ComplexNumbers();
-            // ConsoleUtils.PrintSeparator();
+            ConsoleUtils.PrintSeparator();
+
+            PlayGuessNumber();
         }
 
         private static void ComplexNumbers()
@@ -102,5 +106,43 @@ namespace _7_HomeWorks
             result = c1 - c2;
             Console.WriteLine($"{c1} - {c2} = {result}");
         }
+
+        private static void PlayGuessNumber()
+        {
+            Console.WriteLine("Game Guess Number: ");
+            Player p1 = new Player("Dima", PlayerType.Human);
+            Player p2 = new Player("Vasya", PlayerType.Human);
+            Player p3 = new Player("PC1", PlayerType.Cpu);
+            Player p4 = new Player("PC2", PlayerType.Cpu);
+
+            // GuessNumber game = new GuessNumber(p1, p2);
+            // GuessNumber game = new GuessNumber(p1, p3);
+
+            for (var i = 0; i < 10; i++)
+            {
+                var game = new GuessNumber(p3, p1);
+                Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
+                ConsoleUtils.PrintInternalSeparator();
+            }
+
+
+            // for (var i = 0; i < 10; i++)
+            // {
+            //     var game = new GuessNumber(p1, p3, 10);
+            //     Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
+            //     ConsoleUtils.PrintInternalSeparator();
+            // }
+
+            // Demo version
+            // while (true)
+            // {
+            //     Console.Clear();
+            //     var game = new GuessNumber(p3, p4, 10);
+            //     Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
+            //     System.Threading.Thread.Sleep(2000);
+            // }
+
+        }
+
     }
 }
