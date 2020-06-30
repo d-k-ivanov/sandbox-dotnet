@@ -64,10 +64,12 @@ namespace _7_HomeWorks
                 if (_demo)
                 {
                     Console.Write($"  Available letters: {string.Join(",", _alphabet.ToArray())}   : ");
+
                     var rnd     = new Random();
                     int index   = rnd.Next(0, _alphabet.Count);
 
-                    var key         = _alphabet[index];
+                    string key  = _alphabet[index];
+
                     _alphabet.RemoveAt(index);
 
                     if (!_buffer.Contains(key) && word.Contains(key))

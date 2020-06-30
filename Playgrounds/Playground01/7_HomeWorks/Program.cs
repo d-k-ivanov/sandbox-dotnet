@@ -17,11 +17,11 @@ namespace _7_HomeWorks
 
         private static void StartAll()
         {
-            // ComplexNumbers();
-            // ConsoleUtils.PrintSeparator();
-            //
-            // PlayGuessNumber();
-            // ConsoleUtils.PrintSeparator();
+            ComplexNumbers();
+            ConsoleUtils.PrintSeparator();
+
+            PlayGuessNumber();
+            ConsoleUtils.PrintSeparator();
 
             PlayHangman();
         }
@@ -157,8 +157,8 @@ namespace _7_HomeWorks
 
         private static void PlayHangman()
         {
-            var game = new Hangman("Dima");
-            // var game = new Hangman("PC", tries:15, demo:true);
+            // var game = new Hangman("Dima");
+            var game = new Hangman("PC", tries:15, demo:true);
             game.Play();
 
             // for (var i = 0; i < 11; i++)
