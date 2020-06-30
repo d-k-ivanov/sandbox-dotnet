@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Threading.Channels;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace _7_HomeWorks
 {
     public class Hangman
     {
-        private readonly int _tries;
+        private readonly int    _tries;
         private readonly string _name;
+        private readonly bool   _demo;
 
-        private readonly List<string> _alphabet = new List<string>
+        private List<string> _alphabet = new List<string>
         {
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
@@ -17,11 +21,11 @@ namespace _7_HomeWorks
 
         private readonly List<string> _buffer = new List<string>();
 
-        public Hangman(string playerName, int tries = 10)
+        public Hangman(string playerName, int tries = 10, bool demo = false)
         {
             _name   = playerName;
-            // _buffer = new string[tries];
             _tries  = tries;
+            _demo   = demo;
         }
 
         public void Play()
@@ -36,7 +40,7 @@ namespace _7_HomeWorks
                 Console.WriteLine();
                 Console.Write(MakeHangMan(turn));
                 Console.WriteLine();
-                Console.WriteLine($"\n\tLet's play a game, {_name}\n\t\tTURN: {turn}\n");
+                Console.WriteLine($"\n\tLet's play a game, {_name}\n\t    TRY: {_tries - 10 + turn} of {_tries}\n");
 
                 shownWord    = "";
                 foreach (var ch in word)
@@ -51,27 +55,70 @@ namespace _7_HomeWorks
                     }
                 }
 
-                Console.Write(
-                    $"     {shownWord}       <<< GUESS THE LETTER!     " +
-                    $"Your previous letters: {string.Join(",", _buffer.ToArray())}   : ");
+                Console.WriteLine($"  The word to guess =>  {shownWord}");
+                Console.WriteLine($"  Your previous letters: {string.Join(",", _buffer.ToArray())}");
 
                 if (turn == 10 || shownWord == word)
                     break;
 
-                var keyPressed  = Console.ReadKey();
-                var key         = keyPressed.Key.ToString();
-
-
-                if (!_buffer.Contains(key) && _alphabet.Contains(key))
+                if (_demo)
                 {
-                    _buffer.Add(keyPressed.Key.ToString());
+                    Console.Write($"  Available letters: {string.Join(",", _alphabet.ToArray())}   : ");
+                    var rnd     = new Random();
+                    int index   = rnd.Next(0, _alphabet.Count);
+
+                    var key         = _alphabet[index];
+                    _alphabet.RemoveAt(index);
+
+                    if (!_buffer.Contains(key) && word.Contains(key))
+                    {
+                        _buffer.Add(key);
+                    }
+                    else if (!_buffer.Contains(key))
+                    {
+                        _buffer.Add(key);
+                        turn++;
+                    }
+                    System.Threading.Thread.Sleep(500);
                 }
                 else
                 {
-                    continue;
+                    Console.Write("  Guess the Letter: ");
+                    var keyPressed  = Console.ReadKey();
+                    var key         = keyPressed.Key.ToString();
+
+                    if (!_buffer.Contains(key) && _alphabet.Contains(key) && word.Contains(key))
+                    {
+                        _buffer.Add(key);
+                    }
+                    else if (!_buffer.Contains(key) && _alphabet.Contains(key))
+                    {
+                        _buffer.Add(key);
+                        turn++;
+
+                    }
                 }
 
-                turn++;
+
+                // var keyPressed  = Console.ReadKey();
+                // var key         = keyPressed.Key.ToString();
+                //
+                // if (!_buffer.Contains(key) && _alphabet.Contains(key) && word.Contains(key))
+                // {
+                //     _buffer.Add(keyPressed.Key.ToString());
+                // }
+                // else if (!_buffer.Contains(key) && _alphabet.Contains(key))
+                // {
+                //     _buffer.Add(keyPressed.Key.ToString());
+                //     turn++;
+                //
+                // }
+                // else
+                // {
+                //     continue;
+                // }
+
+                // turn++;
                 // System.Threading.Thread.Sleep(1000);
             }
 

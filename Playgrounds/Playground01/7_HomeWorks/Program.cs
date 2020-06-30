@@ -9,8 +9,7 @@ namespace _7_HomeWorks
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            PlayHangman();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -18,17 +17,18 @@ namespace _7_HomeWorks
 
         private static void StartAll()
         {
-            ComplexNumbers();
-            ConsoleUtils.PrintSeparator();
-
-            PlayGuessNumber();
-            ConsoleUtils.PrintSeparator();
+            // ComplexNumbers();
+            // ConsoleUtils.PrintSeparator();
+            //
+            // PlayGuessNumber();
+            // ConsoleUtils.PrintSeparator();
 
             PlayHangman();
         }
 
         private static void ComplexNumbers()
         {
+            Console.Clear();
             var c1 = new Complex(1,1);
             var c2 = new Complex(1,2);
 
@@ -106,10 +106,14 @@ namespace _7_HomeWorks
 
             result = c1 - c2;
             Console.WriteLine($"{c1} - {c2} = {result}");
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
         private static void PlayGuessNumber()
         {
+            Console.Clear();
             Console.WriteLine("Game Guess Number: ");
             Player p1 = new Player("Dima", PlayerType.Human);
             Player p2 = new Player("Vasya", PlayerType.Human);
@@ -119,12 +123,12 @@ namespace _7_HomeWorks
             // GuessNumber game = new GuessNumber(p1, p2);
             // GuessNumber game = new GuessNumber(p1, p3);
 
-            for (var i = 0; i < 10; i++)
-            {
-                var game = new GuessNumber(p3, p1);
-                Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
-                ConsoleUtils.PrintInternalSeparator();
-            }
+            // for (var i = 0; i < 10; i++)
+            // {
+            //     var game = new GuessNumber(p3, p1);
+            //     Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
+            //     ConsoleUtils.PrintInternalSeparator();
+            // }
 
 
             // for (var i = 0; i < 10; i++)
@@ -143,11 +147,18 @@ namespace _7_HomeWorks
             //     System.Threading.Thread.Sleep(2000);
             // }
 
+            var game = new GuessNumber(p3, p4, 10);
+            Console.WriteLine($"\nThe answer is {game.Play()}. Winner: {game.Winner.Name}");
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
         }
 
         private static void PlayHangman()
         {
             var game = new Hangman("Dima");
+            // var game = new Hangman("PC", tries:15, demo:true);
             game.Play();
 
             // for (var i = 0; i < 11; i++)
