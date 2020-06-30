@@ -1,7 +1,5 @@
 using System;
-using System.Net.Http.Headers;
 using CSCLib;
-using Microsoft.VisualBasic;
 
 namespace _7_HomeWorks
 {
@@ -12,7 +10,7 @@ namespace _7_HomeWorks
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            PlayGuessNumber();
+            PlayHangman();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -24,6 +22,9 @@ namespace _7_HomeWorks
             ConsoleUtils.PrintSeparator();
 
             PlayGuessNumber();
+            ConsoleUtils.PrintSeparator();
+
+            PlayHangman();
         }
 
         private static void ComplexNumbers()
@@ -144,5 +145,17 @@ namespace _7_HomeWorks
 
         }
 
+        private static void PlayHangman()
+        {
+            var game = new Hangman("Dima");
+            game.Play();
+
+            // for (var i = 0; i < 11; i++)
+            // {
+            //     Console.Clear();
+            //     Console.Write(Hangman.MakeHangMan(i));
+            //     System.Threading.Thread.Sleep(1000);
+            // }
+        }
     }
 }

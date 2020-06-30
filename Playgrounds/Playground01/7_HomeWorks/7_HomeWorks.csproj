@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CSCLib\CSCLib.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y $(ProjectDir)HangManWords.txt  $(ProjectDir)$(OutDir)" />
+  </Target>
+
 </Project>
