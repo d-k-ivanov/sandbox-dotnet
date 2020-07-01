@@ -10,8 +10,7 @@ namespace _7_HomeWorks
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            PlayTicTacToe();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
