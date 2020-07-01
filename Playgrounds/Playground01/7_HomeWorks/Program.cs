@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using CSCLib;
 
 namespace _7_HomeWorks
@@ -9,7 +10,8 @@ namespace _7_HomeWorks
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            PlayTicTacToe();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -24,6 +26,9 @@ namespace _7_HomeWorks
             ConsoleUtils.PrintSeparator();
 
             PlayHangman();
+            ConsoleUtils.PrintSeparator();
+
+            PlayTicTacToe();
         }
 
         private static void ComplexNumbers()
@@ -168,5 +173,24 @@ namespace _7_HomeWorks
             //     System.Threading.Thread.Sleep(1000);
             // }
         }
+
+
+        private static void PlayTicTacToe()
+        {
+            while (TicTacToePlay.Game.GetWinner() == Winner.GameIsUnfinished)
+            {
+                Console.Clear();
+                Console.WriteLine("\t  Tic Tac Toe\n");
+
+                Console.WriteLine($"\t _____ _____ _____ ");
+                Console.WriteLine(TicTacToePlay.PrintState());
+
+                TicTacToePlay.MakeTurn();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Winner: {TicTacToePlay.Game.GetWinner()}");
+        }
+
     }
 }
