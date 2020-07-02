@@ -1,9 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AdvancedTopics
 {
+    class CarArgs : EventArgs
+    {
+        public int CurrentSpeed { get; set; }
+
+        public CarArgs(int currentSpeed)
+        {
+            CurrentSpeed = currentSpeed;
+        }
+
+    }
+
     class Car
     {
         public int Speed = 0;
@@ -22,6 +31,10 @@ namespace AdvancedTopics
         // It's possible to use Func BCL Delegate
         // public event Func<Car, string> TooFastDriving;
 
+        // BCL EventHandler: Object + Arguments
+        public event EventHandler<CarArgs> TooFastDrivingEh;
+
+
         public void Start()
         {
             Speed = 10;
@@ -33,6 +46,10 @@ namespace AdvancedTopics
 
             if (Speed > 80)
             {
+                // Event Handler
+                TooFastDrivingEh?.Invoke(this, new CarArgs(Speed));
+
+                // Actions
                 TooFastDriving?.Invoke(this);
             }
         }
