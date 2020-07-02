@@ -8,9 +8,19 @@ namespace AdvancedTopics
     {
         public int Speed = 0;
 
-        public delegate void TooFast(Car car);
+        // Delegate
+        // public delegate void TooFast(Car car);
+        // private TooFast _tooFast;
 
-        private TooFast _tooFast;
+        // Own custom event
+        // public delegate void TooFast(Car car);
+        // public event TooFast TooFastDriving;
+
+        // BCL Action event
+        public event Action<Car> TooFastDriving;
+
+        // It's possible to use Func BCL Delegate
+        // public event Func<Car, string> TooFastDriving;
 
         public void Start()
         {
@@ -23,7 +33,7 @@ namespace AdvancedTopics
 
             if (Speed > 80)
             {
-                _tooFast(this);
+                TooFastDriving?.Invoke(this);
             }
         }
 
@@ -32,9 +42,15 @@ namespace AdvancedTopics
             Speed = 0;
         }
 
-        public void RegisterOnTooFast(TooFast tooFast)
-        {
-            _tooFast = tooFast;
-        }
+        // public void RegisterOnTooFast(TooFast tooFast)
+        // {
+        //     // _tooFast = tooFast;
+        //     _tooFast += tooFast;
+        // }
+
+        // public void UnRegisterOnTooFast(TooFast tooFast)
+        // {
+        //     _tooFast -= tooFast;
+        // }
     }
 }
