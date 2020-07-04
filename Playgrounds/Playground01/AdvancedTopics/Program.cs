@@ -135,12 +135,20 @@ namespace AdvancedTopics
             var p4 = new TenSticksPlayer("C3PO", SticksPlayerType.Cpu);
 
             // var game = new TenSticksGame(p1,p2);
-            var game = new TenSticksGame(p1,p3);
-            // var game = new TenSticksGame(p3,p4);
+            // var game = new TenSticksGame(p1,p3);
+            var game = new TenSticksGame(p3,p4);
             game.GameInProgress += Game_GameInProgress;
             game.SticksTaken += Game_SticksTaken;
             game.EndGame += Game_EndGame;
-            game.Start();
+            // game.Start();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("\t\tStarting 10 Sticks Demo.\n");
+                game.Start();
+                ConsoleUtils.PrintInternalSeparator();
+
+            }
 
         }
 
@@ -191,7 +199,7 @@ namespace AdvancedTopics
 
         private static void Game_EndGame(TenSticksPlayer player)
         {
-            Console.WriteLine(new string('-', 25));
+            Console.WriteLine("\t---------------");
             Console.WriteLine($"\tPlayer {player.Name} wins!");
         }
     }

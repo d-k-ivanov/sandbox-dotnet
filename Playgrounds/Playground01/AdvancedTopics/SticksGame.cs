@@ -67,17 +67,14 @@ namespace AdvancedTopics
                     break;
                 case GameStatus.Progress:
                     throw new InvalidOperationException("Game already started. Game couldn't be started twice...");
-                case GameStatus.NotStarted:
-                    _gameStatus = GameStatus.Progress;
-                    while (_gameStatus == GameStatus.Progress)
-                    {
-                        MakeMove();
-                        IsGameFinished();
-                        Current = Current == Player.One ? Player.Two : Player.One;
-                    }
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+            }
+
+            _gameStatus = GameStatus.Progress;
+            while (_gameStatus == GameStatus.Progress)
+            {
+                MakeMove();
+                IsGameFinished();
+                Current = Current == Player.One ? Player.Two : Player.One;
             }
         }
 
