@@ -10,7 +10,8 @@ namespace AdvancedTopics
         {
             ConsoleUtils.PrintSeparator();
 
-            StartAll();
+            // StartAll();
+            TenSticks();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -22,6 +23,9 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             TimerDemo();
+            ConsoleUtils.PrintSeparator();
+
+            TenSticks();
         }
 
         private static void DelegatesDemo()
@@ -121,6 +125,74 @@ namespace AdvancedTopics
         {
             var timer = (Timer) sender;
             Console.WriteLine("Handling timer events...");
+        }
+
+        private static void TenSticks()
+        {
+            var p1 = new TenSticksPlayer("John", SticksPlayerType.Human);
+            var p2 = new TenSticksPlayer("Karl", SticksPlayerType.Human);
+            var p3 = new TenSticksPlayer("R2D2", SticksPlayerType.Cpu);
+            var p4 = new TenSticksPlayer("C3PO", SticksPlayerType.Cpu);
+
+            // var game = new TenSticksGame(p1,p2);
+            var game = new TenSticksGame(p1,p3);
+            // var game = new TenSticksGame(p3,p4);
+            game.GameInProgress += Game_GameInProgress;
+            game.SticksTaken += Game_SticksTaken;
+            game.EndGame += Game_EndGame;
+            game.Start();
+
+        }
+
+        private static int Game_GameInProgress(TenSticksGame game, TenSticksPlayer player)
+        {
+            var sticksToTake = -1;
+            var max = game.SticksCurrent >= 3 ? 3 : game.SticksCurrent;
+
+            // Console.WriteLine($"Remaining sticks: game.SticksCurrent");
+            Console.WriteLine($"Remaining sticks: {game.SticksCurrent} --> {new string('|', game.SticksCurrent)}");
+            Console.Write($"\t{player.Name} take from 1 to {max}.");
+
+            if (player.SticksPlayerType == SticksPlayerType.Cpu)
+            {
+                sticksToTake = game.Random.Next(1, max+1);
+                return sticksToTake;
+            }
+
+            while (sticksToTake < 1 || sticksToTake > max)
+            {
+                switch (sticksToTake)
+                {
+                    case -1:
+                        break;
+                    default:
+                        Console.Write($"\tWrong Number. Enter number from 1 to {max}: ");
+                        break;
+                }
+
+                var answer = Console.ReadLine();
+                try
+                {
+                    sticksToTake = int.Parse(answer);
+                }
+                catch (FormatException)
+                {
+                    sticksToTake = -2;
+                }
+            }
+
+            return sticksToTake;
+        }
+
+        private static void Game_SticksTaken(TenSticksPlayer player, int sticks)
+        {
+            Console.WriteLine($"\t{player.Name} took {sticks} sticks");
+        }
+
+        private static void Game_EndGame(TenSticksPlayer player)
+        {
+            Console.WriteLine(new string('-', 25));
+            Console.WriteLine($"\tPlayer {player.Name} wins!");
         }
     }
 }
