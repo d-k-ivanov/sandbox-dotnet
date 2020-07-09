@@ -9,4 +9,8 @@
     <ProjectReference Include="..\CSCLib\CSCLib.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y $(ProjectDir)IMDB-Movie-Data.csv    $(ProjectDir)$(OutDir)&#xD;&#xA;xcopy /y $(ProjectDir)Top100ChessPlayers.csv $(ProjectDir)$(OutDir)&#xD;&#xA;xcopy /y $(ProjectDir)Toyota.csv                      $(ProjectDir)$(OutDir)" />
+  </Target>
+
 </Project>

@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Timers;
 using CSCLib;
 
@@ -11,7 +14,7 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            TenSticks();
+            LinqDemo_2();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -26,6 +29,12 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             TenSticks();
+            ConsoleUtils.PrintSeparator();
+
+            LinqDemo_1();
+            ConsoleUtils.PrintSeparator();
+
+            LinqDemo_2();
         }
 
         private static void DelegatesDemo()
@@ -202,5 +211,75 @@ namespace AdvancedTopics
             Console.WriteLine("\t---------------");
             Console.WriteLine($"\tPlayer {player.Name} wins!");
         }
+
+        private static void LinqDemo_1()
+        {
+            NoLinqFileInfoDemo(@"C:\Windows");
+        }
+
+
+        private static void NoLinqFileInfoDemo(string path)
+        {
+            var directoryInfo = new DirectoryInfo(path);
+            FileInfo[] files = directoryInfo.GetFiles();
+
+            Array.Sort(files, FilesComparisonBigger);
+
+            Console.WriteLine(String.Format("{0,40} {1,10}", "File", "Size"));
+
+
+            for (int i = 0; i < 6; i++)
+            {
+                var file = files[i];
+                Console.WriteLine($"{file.Name,40} {file.Length / 1024,10}");
+            }
+        }
+
+        private static void LinqDemo_2()
+        {
+            LinqFileInfoDemo(@"C:\Windows");
+        }
+
+        private static void LinqFileInfoDemo(string path)
+        {
+            Console.WriteLine($"{"File",40} {"Size",10}");
+            new DirectoryInfo(path)
+                .GetFiles()
+                .OrderByDescending(file => file.Length)
+                .Take(5)
+                .ForEach(file => Console.WriteLine($"{file.Name,40} {file.Length / 1024,10}"));
+
+            // ==
+            // IEnumerable<FileInfo> orderedFiles = new DirectoryInfo(path)
+            //     .GetFiles()
+            //     .OrderBy(file => file.Length)
+            //     .Take(5);
+            //
+            // foreach (var file in orderedFiles)
+            // {
+            //     Console.WriteLine($"{file.Name,40} {file.Length / 1024,10}");
+            // }
+
+        }
+
+        // private static long KeySelector(FileInfo file)
+        // {
+        //     return file.Length;
+        // }
+
+        private static int FilesComparisonBigger(FileInfo x, FileInfo y)
+        {
+            if (x.Length == y.Length) return 0;
+            if (x.Length > y.Length) return -1;
+            return 1;
+        }
+
+        private static int FilesComparisonSmaller(FileInfo x, FileInfo y)
+        {
+            if (x.Length == y.Length) return 0;
+            if (x.Length > y.Length) return 1;
+            return -1;
+        }
+
     }
 }
