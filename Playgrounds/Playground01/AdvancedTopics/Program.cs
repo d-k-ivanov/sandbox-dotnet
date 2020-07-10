@@ -290,8 +290,9 @@ namespace AdvancedTopics
             ConsoleUtils.PrintInternalSeparator();
 
             ChessPlayersList("Top100ChessPlayers.csv");
+            ConsoleUtils.PrintInternalSeparator();
 
-
+            ChessPlayersLinqDemo("Top100ChessPlayers.csv");
         }
 
         private static void ChessPlayersMinMaxAvg(string file)
@@ -319,5 +320,28 @@ namespace AdvancedTopics
                 .ToList()
                 .ForEach(Console.WriteLine);
         }
+
+
+        private static void ChessPlayersLinqDemo(string file)
+        {
+            List<ChessPlayer> list = File.ReadAllLines(file)
+                .Skip(1)
+                .Select(ChessPlayer.ParseFideData) // .Select(x => ChessPlayer.ParseFideData(x))
+                .OrderByDescending(player => player.Rating)
+                .ToList();
+
+            Console.WriteLine($"First:      {list.First()}");
+            Console.WriteLine($"Last:       {list.Last()}");
+
+            Console.WriteLine($"First RUS:  {list.First(player => player.Country == "RUS")}");
+            Console.WriteLine($"Last  USA:  {list.Last(player => player.Country == "USA")}");
+
+            Console.WriteLine($"First BRA:  {list.FirstOrDefault(player => player.Country == "BRA")}");
+            Console.WriteLine($"Last  BRA:  {list.LastOrDefault(player => player.Country == "BRA")}");
+
+            Console.WriteLine($"Single VIE: {list.Single(player => player.Country == "VIE")}");
+            Console.WriteLine($"Single BRA: {list.SingleOrDefault(player => player.Country == "BRA")}");
+        }
+
     }
 }
