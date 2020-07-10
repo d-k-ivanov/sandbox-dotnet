@@ -14,7 +14,7 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            LinqDemo_2();
+            ChessPlayersAnalysis();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -35,6 +35,9 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             LinqDemo_2();
+            ConsoleUtils.PrintSeparator();
+
+            ChessPlayersAnalysis();
         }
 
         private static void DelegatesDemo()
@@ -281,5 +284,40 @@ namespace AdvancedTopics
             return -1;
         }
 
+        private static void ChessPlayersAnalysis()
+        {
+            ChessPlayersMinMaxAvg("Top100ChessPlayers.csv");
+            ConsoleUtils.PrintInternalSeparator();
+
+            ChessPlayersList("Top100ChessPlayers.csv");
+
+
+        }
+
+        private static void ChessPlayersMinMaxAvg(string file)
+        {
+            List<ChessPlayer> list = File.ReadAllLines(file)
+                                        .Skip(1)
+                                        .Select(ChessPlayer.ParseFideData) // .Select(x => ChessPlayer.ParseFideData(x))
+                                        .Where(player => player.BirthYear > 1988)
+                                        .OrderByDescending(player => player.Rating)
+                                        .Take(10)
+                                        .ToList();
+
+            Console.WriteLine($"The lowest  rating in TOP 10: {list.Min(x => x.Rating)}");
+            Console.WriteLine($"The highest rating in TOP 10: {list.Max(x => x.Rating)}");
+            Console.WriteLine($"The average rating in TOP 10: {list.Average(x => x.Rating)}");
+        }
+
+        private static void ChessPlayersList(string file)
+        {
+            File.ReadAllLines(file)
+                .Skip(1)
+                .Select(ChessPlayer.ParseFideData)
+                .OrderByDescending(player => player.Rating)
+                .ThenByDescending(player => player.Country)
+                .ToList()
+                .ForEach(Console.WriteLine);
+        }
     }
 }
