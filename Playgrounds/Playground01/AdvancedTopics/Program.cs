@@ -14,7 +14,7 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            LazyAndGreedyEvaluationsDemo();
+            ChessPlayersAnalysis();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -38,6 +38,9 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             ChessPlayersAnalysis();
+            ConsoleUtils.PrintSeparator();
+
+            LazyAndGreedyEvaluationsDemo();
         }
 
         private static void DelegatesDemo()
@@ -300,10 +303,23 @@ namespace AdvancedTopics
             List<ChessPlayer> list = File.ReadAllLines(file)
                                         .Skip(1)
                                         .Select(ChessPlayer.ParseFideData) // .Select(x => ChessPlayer.ParseFideData(x))
+                                        // Anonymous expressions
+                                        // .Where(delegate(ChessPlayer player) { return player.BirthYear > 1988; })
+                                        // Lambda expressions
                                         .Where(player => player.BirthYear > 1988)
                                         .OrderByDescending(player => player.Rating)
                                         .Take(10)
                                         .ToList();
+
+            // SQL-like sintax
+            // var list2 = File.ReadAllLines(file)
+            //                             .Skip(1)
+            //                             .Select(ChessPlayer.ParseFideData);
+            //
+            // var filtered = from player in list2
+            //                                           where player.BirthYear > 1988
+            //                                           orderby player.Rating descending
+            //                                           select player;
 
             Console.WriteLine($"The lowest  rating in TOP 10: {list.Min(x => x.Rating)}");
             Console.WriteLine($"The highest rating in TOP 10: {list.Max(x => x.Rating)}");
