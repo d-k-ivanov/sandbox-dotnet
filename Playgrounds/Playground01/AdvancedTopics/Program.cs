@@ -14,7 +14,7 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             // StartAll();
-            ChessPlayersAnalysis();
+            LazyAndGreedyEvaluationsDemo();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -343,5 +343,22 @@ namespace AdvancedTopics
             Console.WriteLine($"Single BRA: {list.SingleOrDefault(player => player.Country == "BRA")}");
         }
 
+        private static void LazyAndGreedyEvaluationsDemo()
+        {
+            var list = new List<int> {1, 2, 3};
+            var query = list.Where(x => x >= 2 );
+            list.Remove(3);
+
+            foreach (var item in query)
+            {
+                Console.WriteLine($"Q Item: {item}");
+            }
+
+            Console.WriteLine($"Q Count: {query.Count()}");
+
+            // Lazy: Select, SelectMany, Take, Skip, Where
+            // Greedy: Count, Average, Mean, Max, Sum, Last, ToList
+
+        }
     }
 }
