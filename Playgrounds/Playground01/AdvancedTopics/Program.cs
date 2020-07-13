@@ -13,8 +13,7 @@ namespace AdvancedTopics
         {
             ConsoleUtils.PrintSeparator();
 
-            // StartAll();
-            ChessPlayersAnalysis();
+            StartAll();
 
             // -----------------------------------------------
             ConsoleUtils.EndOfProgram();
@@ -41,6 +40,12 @@ namespace AdvancedTopics
             ConsoleUtils.PrintSeparator();
 
             LazyAndGreedyEvaluationsDemo();
+            ConsoleUtils.PrintSeparator();
+
+            RemovalDemo();
+            ConsoleUtils.PrintSeparator();
+
+            ChessPlayersRus("Top100ChessPlayers.csv");
         }
 
         private static void DelegatesDemo()
@@ -359,6 +364,22 @@ namespace AdvancedTopics
             Console.WriteLine($"Single BRA: {list.SingleOrDefault(player => player.Country == "BRA")}");
         }
 
+        private static void ChessPlayersRus(string file)
+        {
+            List<ChessPlayer> list = File.ReadAllLines(file)
+                .Skip(1)
+                .Select(ChessPlayer.ParseFideData)
+                .Where(player => player.Country == "RUS")
+                .OrderBy(player => player.BirthYear)
+                .ToList();
+
+            foreach (var chessPlayer in list)
+            {
+                Console.WriteLine(chessPlayer);
+            }
+
+        }
+
         private static void LazyAndGreedyEvaluationsDemo()
         {
             var list = new List<int> {1, 2, 3};
@@ -375,6 +396,103 @@ namespace AdvancedTopics
             // Lazy: Select, SelectMany, Take, Skip, Where
             // Greedy: Count, Average, Mean, Max, Sum, Last, ToList
 
+        }
+
+        public static void RemovalDemo()
+        {
+            // RemoveInForEach();
+            // ConsoleUtils.PrintInternalSeparator();
+
+            RemoveInFor();
+            ConsoleUtils.PrintInternalSeparator();
+
+            RemoveInForBackward();
+            ConsoleUtils.PrintInternalSeparator();
+
+            RemoveAllDemo();
+        }
+
+        private static void RemoveInForEach()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            foreach (var item in list)
+            {
+                if (item % 2 == 0)
+                {
+                    list.Remove(item);
+                }
+            }
+
+            Console.WriteLine($"List size: {list.Count}");
+
+            // List<int>.Enumerator enumerator = list.GetEnumerator();
+            // try
+            // {
+            //     while (enumerator.MoveNext())
+            //     {
+            //         int item = enumerator.Current;
+            //     }
+            // }
+            // finally
+            // {
+            //     enumerator.Dispose();
+            // }
+        }
+
+        private static void RemoveInFor()
+        {
+            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            for (int index = 0; index < list.Count; index++)
+            {
+                var item = list[index];
+                if (item % 2 == 0)
+                {
+                    list.Remove(item);
+                    index--; // Important to move index back
+                }
+            }
+
+            Console.WriteLine($"List Count == 5? {list.Count == 5}");
+
+
+            Console.WriteLine("RemoveInFor");
+            var list2 = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            for (int index = 0; index < list2.Count; index++)
+            {
+                var item = list2[index];
+                if (item >= 5)
+                {
+                    list2.Remove(item);
+                    index--; // Important to move index back
+                }
+            }
+
+            Console.WriteLine($"List Count == 4? {list2.Count == 4}");
+        }
+
+        private static void RemoveInForBackward()
+        {
+            Console.WriteLine("RemoveInForBackward");
+            var list2 = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            for (int index = list2.Count - 1; index >= 0; index--)
+            {
+                var item = list2[index];
+                if (item >= 5)
+                {
+                    list2.Remove(item);
+                }
+            }
+
+            Console.WriteLine($"List Count == 4? {list2.Count == 4}");
+        }
+
+        private static void RemoveAllDemo()
+        {
+            Console.WriteLine("RemoveAllDemo");
+            var list2 = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            list2.RemoveAll(x => x >= 5);
+
+            Console.WriteLine($"List Count == 4? {list2.Count == 4}");
         }
     }
 }
